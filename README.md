@@ -1,4 +1,4 @@
-# docvisit
+# DocVisit
 Projekt eszközök beadandó 2019/2020-2
 
 DocVisit is a web-based React and NodeJS powered online doctor appointment maker.
