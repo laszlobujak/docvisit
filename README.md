@@ -15,7 +15,7 @@ DocVisit uses a number of open source projects to work properly:
 * [ReactJS] - HTML enhanced for web apps!
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
+* [Express] - fast node.js network app framework
 
 And of course DocVisit itself is open source with a public repository on GitHub.
 
