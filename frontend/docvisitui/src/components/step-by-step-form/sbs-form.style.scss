@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
+
+
+.sbs-form-container{
+    margin-top: 13rem;
+
+    h1{
+        font-family: 'Overlock', cursive;
+        display: flex;
+        justify-content: center;
+    }  
+
+    .form{
+        margin: 8rem auto;
+        width: 80%;
+        background-color: rgb(118, 126, 104);
+        border-radius: 4rem;
+        background-image: linear-gradient(#DCE0E3, white);
+
+        #vertical-line{
+            width: 3px;
+            height: 40rem;
+            background-color: #D3D3D3;
+            position: relative;
+            left: 7rem;
+            top: 10rem;
+        }
+
+        .dot{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: -2rem;
+        }
+
+
+        .active{
+            background-color: #5A82BE;
+            margin-bottom: 15rem;
+        }
+
+        .inactive-dots{
+            background-color: rgb(184, 184, 187);
+            margin-bottom:2rem;
+        }
+    }
+}

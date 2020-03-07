@@ -4,6 +4,8 @@ import './homepage.style.scss';
 
 //import components
 import Nav from '../../components/nav/nav.component';
+import SbsForm from '../../components/step-by-step-form/sbs-form.component';
+import Footer from '../../components/footer/footer.component';
 
 function HomePage(){
 
@@ -23,6 +25,42 @@ function HomePage(){
           </div>
           <div id="main-blue-shape"></div>
         </div>
+        <SbsForm></SbsForm>
+        <div id="quote">
+          <h1>
+            “Health is not valued until<br></br> sickness comes”{" "}
+          </h1>
+          <p> ~ Thomas Fuller</p>
+        </div>
+        <div className="doctors-and-infos">
+          <div id="stethoscope"></div>
+          <div className="text">
+            <h2>Doctors</h2>
+            <p>
+              Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div className="text">
+            <h2>Choose us</h2>
+            <p>
+              Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div id="medical"></div>
+        </div>
+        <Footer></Footer>
       </div>
     );
 }
