@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .text-container{
+        display: grid;
+        grid-template-rows: 55% 1fr 1fr;
+
+        #main-title{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-family: 'Overlock', cursive;
+            font-size: 4rem;
+
+            #hearth{
+                background-image: url("../../materials/blue-hearth.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 7rem;
+                height: 5rem;
+            }
+
+            p{
+                font-size: 10rem;
+                color: #1266cd;
+                position: relative;
+                margin-left: 1rem;
+                top: 2.5rem;
+            }
+
+        }
+        
+        #informal-text{
+            margin-top: 2rem;
+            text-align: left;
+            margin-left: 12rem;
+        }
+
+        #read-more{
+            background-color: #192965;
+            width: 15rem;
+            height: 3rem;
+            border-radius: 20px;
+            color: white;
+            margin: 0 auto;
+        }
+    }
+
+
+    #main-blue-shape{
+        background-image: url("../../materials//blue-shape.png");
+        width: 50rem;
+        height: 40rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: -3rem;
+    } 
+}
+
+
+
