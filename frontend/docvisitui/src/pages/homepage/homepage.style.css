@@ -67,6 +67,17 @@
   margin-right: -3rem;
 }
 
+.main-container #main-blue-shape #workers {
+  background-image: url("../../materials/docurs.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40rem;
+  height: 30rem;
+  position: relative;
+  left: 7rem;
+  top: 2rem;
+}
+
 #quote {
   margin-top: 20rem;
   width: 100%;
@@ -122,5 +133,11 @@
 .doctors-and-infos .text {
   margin: auto;
   padding: 6rem;
+}
+
+.doctors-and-infos .more-infos {
+  background-color: transparent;
+  border: none;
+  color: #192965;
 }
 /*# sourceMappingURL=homepage.style.css.map */

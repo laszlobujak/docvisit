@@ -11,6 +11,7 @@ const Footer = () => (
       <a class="nav-link" href="#">
         Menuitem
       </a>
+      <div id="nurse-and-doctor"></div>
     </div>
   </div>
 );

@@ -6,9 +6,6 @@ import './nav.style.scss';
 
 const Nav = () => (
   <nav class="navbar navbar-expand-lg nav-container">
-    <a class="navbar-brand" href="#">
-      Logo
-    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -25,12 +22,12 @@ const Nav = () => (
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">
-            Menuitem
+            Sign up
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            Menuitem
+            Log in
           </a>
         </li>
       </ul>

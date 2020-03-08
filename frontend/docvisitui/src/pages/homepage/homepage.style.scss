@@ -57,6 +57,17 @@
         background-repeat: no-repeat;
         background-size: contain;
         margin-right: -3rem;
+
+        #workers{
+            background-image: url("../../materials/docurs.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 40rem;
+            height: 30rem;
+            position: relative;
+            left: 7rem;
+            top: 2rem;
+        }
     } 
 }
 
@@ -113,6 +124,12 @@
     .text{
         margin: auto;
         padding: 6rem;
+    }
+
+    .more-infos{
+        background-color: transparent;
+        border: none;
+        color: #192965;
     }
 
 

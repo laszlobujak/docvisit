@@ -15,7 +15,7 @@ function HomePage(){
         <div className="main-container">
           <div className="text-container">
             <h2 id="main-title">
-              <div id="hearth"></div>Lorem ipsum<p>.</p>
+              <div id="hearth"></div>DocVisit<p>.</p>
             </h2>
             <p id="informal-text">
               dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -23,7 +23,9 @@ function HomePage(){
             </p>
             <button id="read-more">Lorem ipsum</button>
           </div>
-          <div id="main-blue-shape"></div>
+          <div id="main-blue-shape">
+            <div id="workers"></div>
+          </div>
         </div>
         <SbsForm></SbsForm>
         <div id="quote">
@@ -45,6 +47,7 @@ function HomePage(){
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
+            <button className="more-infos">Read more...</button>
           </div>
           <div className="text">
             <h2>Choose us</h2>
@@ -57,6 +60,7 @@ function HomePage(){
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
+            <button className="more-infos">Read more...</button>
           </div>
           <div id="medical"></div>
         </div>
