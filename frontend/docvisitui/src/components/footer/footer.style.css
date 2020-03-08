@@ -3,6 +3,18 @@
   height: 20rem;
   background-color: #BBE1FA;
   margin-top: 30rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-container .menu-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin: 3rem auto;
 }
 
 .footer-container #nurse-and-doctor {
@@ -14,5 +26,23 @@
   position: relative;
   margin: auto;
   top: -13rem;
+}
+
+.icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  margin: 2rem;
+  float: right;
+}
+
+#instagram {
+  background-image: url("../../materials/instagram.png");
+}
+
+#facebook {
+  background-image: url("../../materials/facebook.png");
 }
 /*# sourceMappingURL=footer.style.css.map */

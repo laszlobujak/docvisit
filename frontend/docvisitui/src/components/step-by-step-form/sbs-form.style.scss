@@ -2,13 +2,7 @@
 
 
 .sbs-form-container{
-    margin-top: 13rem;
-
-    h1{
-        font-family: 'Overlock', cursive;
-        display: flex;
-        justify-content: center;
-    }  
+    margin-top: 8rem;
 
     .form{
         margin: 8rem auto;
@@ -16,14 +10,16 @@
         background-color: rgb(118, 126, 104);
         border-radius: 4rem;
         background-image: linear-gradient(#DCE0E3, white);
+        display: grid;
+        grid-template-columns: 10% 1fr 1fr;
 
         #vertical-line{
             width: 3px;
             height: 40rem;
             background-color: #D3D3D3;
             position: relative;
-            left: 7rem;
-            top: 10rem;
+            margin: auto;
+            margin-top: 5rem;
         }
 
         .dot{
@@ -48,4 +44,10 @@
             margin-bottom:2rem;
         }
     }
+}
+
+.first-block-of-infos{
+    margin-top: 10rem;
+
+
 }

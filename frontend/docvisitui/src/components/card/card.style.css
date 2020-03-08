@@ -1,0 +1,22 @@
+.card-container {
+  width: 25rem;
+  height: 13rem;
+  -webkit-box-shadow: -9px 15px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: -9px 15px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  margin: 2rem;
+  text-align: center;
+}
+
+.card-container .avatar {
+  background-image: url("../../materials/avatar.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  border: solid 0.4em #fcfeff;
+  position: relative;
+  z-index: 100;
+}
+/*# sourceMappingURL=card.style.css.map */

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 //style
 import './nav.style.scss';
@@ -20,15 +21,14 @@ const Nav = () => (
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            Sign up
-          </a>
+        <li class="nav-item">
+          <Link to="/">Home</Link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            Log in
-          </a>
+          <Link to="/signup">Sign up</Link>
+        </li>
+        <li class="nav-item">
+          <Link to="/login">Log in</Link>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
