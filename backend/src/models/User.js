@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const Appointment = require("./Appointment");
 
 const userSchema = new mongoose.Schema(
   {
@@ -42,6 +43,12 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+userSchema.virtual("appointments", {
+  ref: "Appointment",
+  localField: "_id",
+  foreignField: "patient"
+});
 
 userSchema.methods.toJSON = function() {
   const userObject = this.toObject();
