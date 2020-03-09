@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const Task = require("./Task");
 
 const userSchema = new mongoose.Schema(
   {
@@ -44,16 +43,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// Create a relationship between User and Task
-// Pair up localField with foreignField: local (User) _id === foreign (Task) owner
-// and create a virtual (non-persistent) field called "tasks"
-userSchema.virtual("tasks", {
-  ref: "Task",
-  localField: "_id",
-  foreignField: "owner"
-});
-
-// Remove tokens and password from responds
 userSchema.methods.toJSON = function() {
   const userObject = this.toObject();
   delete userObject.password;
@@ -91,12 +80,6 @@ userSchema.pre("save", async function(next) {
   if (this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 12);
   }
-  next();
-});
-
-// Delete user task when user is removed
-userSchema.pre("remove", async function(next) {
-  await Task.deleteMany({ owner: this._id });
   next();
 });
 
