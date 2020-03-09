@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACT,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,WAAW;CACrC",
+    "sources": [
+        "doctors.style.scss"
+    ],
+    "names": [],
+    "file": "doctors.style.css"
+}

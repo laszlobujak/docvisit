@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 import './homepage.style.scss';
 
@@ -27,6 +28,8 @@ function HomePage(){
             <div id="workers"></div>
           </div>
         </div>
+        <h1 id="form-title">Easy to use</h1>
+        <p className="dot-separator align-text">............</p>
         <SbsForm></SbsForm>
         <div id="quote">
           <h1>
@@ -47,7 +50,9 @@ function HomePage(){
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <button className="more-infos">Read more...</button>
+            <Link to="/doctors">
+              <button className="more-infos">Read more...</button>
+            </Link>
           </div>
           <div className="text">
             <h2>Choose us</h2>

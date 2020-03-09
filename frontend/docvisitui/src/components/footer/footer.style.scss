@@ -3,6 +3,14 @@
     height: 20rem;
     background-color: #BBE1FA;
     margin-top: 30rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    .menu-item{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 3rem auto;
+    }
 
     #nurse-and-doctor{
         background-image: url("../../materials/worker.png");
@@ -16,3 +24,20 @@
     }
 }
 
+.icon{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    margin: 2rem;
+    float: right;
+}
+
+#instagram{
+    background-image: url("../../materials/instagram.png");
+}
+
+#facebook{
+    background-image: url("../../materials/facebook.png");
+}

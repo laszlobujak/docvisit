@@ -14,12 +14,11 @@ function SbsForm(){
 
     return (
       <div className="sbs-form-container">
-        <h1>
-          Easy to use<br></br>....................
-        </h1>
         <div className="form">
           <div id="vertical-line">{dots}</div>
-          <div className="first-block-of-infos"></div>
+          <div className="first-block-of-infos">
+
+          </div>
         </div>
       </div>
     );

@@ -1,16 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Overlock&display=swap");
 .sbs-form-container {
-  margin-top: 13rem;
-}
-
-.sbs-form-container h1 {
-  font-family: 'Overlock', cursive;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-top: 8rem;
 }
 
 .sbs-form-container .form {
@@ -20,6 +10,10 @@
   border-radius: 4rem;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#DCE0E3), to(white));
   background-image: linear-gradient(#DCE0E3, white);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 1fr 1fr;
+      grid-template-columns: 10% 1fr 1fr;
 }
 
 .sbs-form-container .form #vertical-line {
@@ -27,8 +21,8 @@
   height: 40rem;
   background-color: #D3D3D3;
   position: relative;
-  left: 7rem;
-  top: 10rem;
+  margin: auto;
+  margin-top: 5rem;
 }
 
 .sbs-form-container .form .dot {
@@ -56,5 +50,9 @@
 .sbs-form-container .form .inactive-dots {
   background-color: #b8b8bb;
   margin-bottom: 2rem;
+}
+
+.first-block-of-infos {
+  margin-top: 10rem;
 }
 /*# sourceMappingURL=sbs-form.style.css.map */
