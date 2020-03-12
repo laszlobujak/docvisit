@@ -20,9 +20,6 @@ function LogIn(){
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
               ></input>
-              <small id="emailHelp" class="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
@@ -40,7 +37,7 @@ function LogIn(){
                 id="exampleCheck1"
               ></input>
               <label class="form-check-label" for="exampleCheck1">
-                Check me out
+                Privacy policy
               </label>
             </div>
             <button type="submit" class="btn btn-primary">

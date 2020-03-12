@@ -6,5 +6,30 @@
         margin: 0.5rem;
     }
     
+    button{
+        color: #192965 !important;
+        border: none;
+        margin: 1rem;
+        padding: 0;
+    }
 
+    .promt-window{
+        width: 18rem;
+        height: 10rem;
+        background-image: radial-gradient(rgb(124, 151, 238), rgb(28, 28, 102));
+        z-index: 100;
+        position: absolute;
+        top: 4rem;
+        right: 7rem;
+        clip-path: polygon(86% 4%, 76% 20%, 100% 21%, 100% 100%, 0 100%, 0 24%, 57% 21%);    }
+        color: white;
+        text-align: center;
+
+        h5{
+            margin-top: 4rem;
+        }
+}
+
+.hidden{
+    display: none;
 }

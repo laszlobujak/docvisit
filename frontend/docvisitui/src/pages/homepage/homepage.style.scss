@@ -37,6 +37,7 @@
             margin-top: 2rem;
             text-align: left;
             margin-left: 12rem;
+            font-family: 'Overlock', cursive;
         }
 
         #read-more{
@@ -44,8 +45,12 @@
             width: 15rem;
             height: 3rem;
             border-radius: 20px;
-            color: white;
             margin: 0 auto;
+
+            p{
+                color: white;
+                margin: auto;
+            }
         }
     }
 

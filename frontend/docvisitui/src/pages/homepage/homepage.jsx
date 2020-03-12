@@ -19,10 +19,10 @@ function HomePage(){
               <div id="hearth"></div>DocVisit<p>.</p>
             </h2>
             <p id="informal-text">
-              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
+              Nowadays everything has moved to the internet. We communicate, work and even shop online. But why do we still have to pick up the phone to get an appointment to our doctor?
+              DocVisit tries to solve that problem for you.
             </p>
-            <button id="read-more">Lorem ipsum</button>
+            <button id="read-more"><Link to="/signup"><p>Try now</p></Link></button>
           </div>
           <div id="main-blue-shape">
             <div id="workers"></div>

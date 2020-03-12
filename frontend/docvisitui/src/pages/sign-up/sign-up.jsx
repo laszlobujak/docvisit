@@ -4,7 +4,6 @@ import './sign-up.style.scss';
 
 //import components
 import Nav from '../../components/nav/nav.component';
-import SbsForm from '../../components/step-by-step-form/sbs-form.component';
 
 function SignUp(){
     return (
@@ -14,6 +13,15 @@ function SignUp(){
         <p className="dot-separator align-text">.......</p>
         <div className="form-container">
         <form >
+            <div class="form-group">
+              <label for="exampleInputEmail1">Full name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fullName"
+                placeholder="Enter your name..."
+              ></input>
+            </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
@@ -43,7 +51,7 @@ function SignUp(){
               id="exampleCheck1"
             ></input>
             <label class="form-check-label" for="exampleCheck1">
-              Check me out
+              Privacy policy
             </label>
           </div>
           <button type="submit" class="btn btn-primary">

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import './footer.style.scss';
 
 const Footer = () => (
-  <div className="footer-container">
+  <div className="footer-container">  
     <div className="menu-item">
-      <a class="nav-link" href="#">
-        Menuitem
-      </a>
-      <a class="nav-link" href="#">
-        Menuitem
-      </a>
+      <Link to="/signup"><a class="nav-link" href="#">
+        Sign up
+      </a></Link>
+      <Link to="/login"><a class="nav-link" href="#">
+        Log in
+      </a></Link>
     </div>
     <div id="nurse-and-doctor"></div>
     <div className="social">

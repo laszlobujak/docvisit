@@ -11,43 +11,78 @@
         border-radius: 4rem;
         background-image: linear-gradient(#DCE0E3, white);
         display: grid;
-        grid-template-columns: 10% 1fr 1fr;
-
-        #vertical-line{
-            width: 3px;
-            height: 40rem;
-            background-color: #D3D3D3;
-            position: relative;
-            margin: auto;
-            margin-top: 5rem;
-        }
-
-        .dot{
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            left: -2rem;
-        }
+        grid-template-columns: 10% 1fr;
 
 
-        .active{
-            background-color: #5A82BE;
-            margin-bottom: 15rem;
-        }
+            #vertical-line{
+                width: 3px;
+                height: 40rem;
+                background-color: #D3D3D3;
+                position: relative;
+                margin: auto;
+                margin-top: 5rem;
+            }
 
-        .inactive-dots{
-            background-color: rgb(184, 184, 187);
-            margin-bottom:2rem;
-        }
+            .dot{
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                left: -2rem;
+            }
+
+
+            .active{
+                background-color: #5A82BE;
+                margin-bottom: 15rem;
+            }
+
+            .inactive-dots{
+                background-color: rgb(184, 184, 187);
+                margin-bottom:2rem;
+            }
+
     }
 }
 
 .first-block-of-infos{
     margin-top: 10rem;
+    display: flex;
+
+    .doctor{
+        background-image: url("../../materials/doctor.png");
+        background-size: contain;
+        width : 3rem;
+        height: 3rem;
+    }
+
+    .btn{
+        width: 7rem;
+        height: 2.5rem;
+        position: relative;
+        top: 8rem;
+    }
+}
 
 
+.second-block-of-infos{
+    margin-top: 15rem;
+    display: flex;
+
+    .doctor{
+        background-image: url("../../materials/doctor.png");
+        background-size: contain;
+        width : 3rem;
+        height: 3rem;
+    }
+
+    .btn{
+        width: 7rem;
+        height: 2.5rem;
+        position: relative;
+        top: 8rem;
+    }
 }
