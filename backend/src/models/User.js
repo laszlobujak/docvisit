@@ -1,9 +1,9 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const Appointment = require("./Appointment");
+require('dotenv').config();
+const mongoose = require('mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const Appointment = require('./Appointment');
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate(value) {
         if (!validator.isEmail(value)) {
-          throw new Error("Invalid email!");
+          throw new Error('Invalid email!');
         }
       }
     },
@@ -44,10 +44,10 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.virtual("appointments", {
-  ref: "Appointment",
-  localField: "_id",
-  foreignField: "patient"
+userSchema.virtual('appointments', {
+  ref: 'Appointment',
+  localField: '_id',
+  foreignField: 'patient'
 });
 
 userSchema.methods.toJSON = function() {
@@ -59,7 +59,7 @@ userSchema.methods.toJSON = function() {
 
 userSchema.methods.generateToken = async function() {
   const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_TOKEN, {
-    expiresIn: "24h"
+    expiresIn: '24h'
   });
   this.tokens = this.tokens.concat({ token });
   await this.save();
@@ -70,32 +70,32 @@ userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw new Error("Unable to login!");
+    throw new Error('Unable to login!');
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) {
-    throw new Error("Unable to login!");
+    throw new Error('Unable to login!');
   }
 
   return user;
 };
 
 // Password hash
-userSchema.pre("save", async function(next) {
-  if (this.isModified("password")) {
+userSchema.pre('save', async function(next) {
+  if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 12);
   }
   next();
 });
 
 // Delete user task when user is removed
-userSchema.pre("remove", async function(next) {
+userSchema.pre('remove', async function(next) {
   await Appointment.deleteMany({ patient: this._id });
   next();
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
