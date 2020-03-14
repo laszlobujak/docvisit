@@ -17,7 +17,9 @@ function Doctors(){
 
     return (
       <div>
-        <Nav />
+        <div className="top-container"><Nav />
+          <h2>Doctors</h2>
+        </div>
         <SearchBar />
         <div className="doctor-cards">{exampleDoctors}</div>
       </div>

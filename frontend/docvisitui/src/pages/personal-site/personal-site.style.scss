@@ -1,0 +1,51 @@
+.account-layout{
+    width: 35%;
+    margin: 10rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    #avatar{
+        background-image: url("../../materials/account-avatar.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .bubble{
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        position: relative;
+        background-color: #1266CD;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: stretch_it 4s ease-in;
+
+        i{
+            color: white;
+            font-size: 3rem;
+        }
+    }
+
+    .my-documents{
+        top: -25rem;
+        left: -2rem;
+    }
+
+    .visit-doctors-page{
+        top: -25rem;
+        right: -2rem;
+    }
+
+    .my-calendar{
+        top: -24rem;
+        right: 2.7rem;
+    }
+
+    .patient-name{
+        margin: 2rem;
+    }
+}

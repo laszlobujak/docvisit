@@ -6,7 +6,7 @@
 
     .form{
         margin: 8rem auto;
-        width: 80%;
+        width: 70%;
         background-color: rgb(118, 126, 104);
         border-radius: 4rem;
         background-image: linear-gradient(#DCE0E3, white);
@@ -14,9 +14,12 @@
         grid-template-columns: 10% 1fr;
 
 
+        .calendar{
+            width: 60%;
+        }
             #vertical-line{
                 width: 3px;
-                height: 40rem;
+                height: 35rem;
                 background-color: #D3D3D3;
                 position: relative;
                 margin: auto;
@@ -24,20 +27,20 @@
             }
 
             .dot{
-                width: 4rem;
-                height: 4rem;
+                width: 3rem;
+                height: 3rem;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                left: -2rem;
+                left: -1.4rem;
             }
 
 
             .active{
                 background-color: #5A82BE;
-                margin-bottom: 15rem;
+                margin-bottom: 25rem;
             }
 
             .inactive-dots{
@@ -50,7 +53,7 @@
 
 .first-block-of-infos{
     margin-top: 10rem;
-    display: flex;
+    display: block;
 
     .doctor{
         background-image: url("../../materials/doctor.png");
@@ -59,11 +62,15 @@
         height: 3rem;
     }
 
+    #apppointment-date{
+        text-decoration: underline;
+    }
+
     .btn{
         width: 7rem;
         height: 2.5rem;
         position: relative;
-        top: 8rem;
+        top: 3rem;
     }
 }
 

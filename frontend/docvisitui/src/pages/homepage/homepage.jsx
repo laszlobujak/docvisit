@@ -7,6 +7,7 @@ import './homepage.style.scss';
 import Nav from '../../components/nav/nav.component';
 import SbsForm from '../../components/step-by-step-form/sbs-form.component';
 import Footer from '../../components/footer/footer.component';
+import Statistics from '../../components/statistics/statistics.component';
 
 function HomePage(){
 
@@ -28,9 +29,7 @@ function HomePage(){
             <div id="workers"></div>
           </div>
         </div>
-        <h1 id="form-title">Easy to use</h1>
-        <p className="dot-separator align-text">............</p>
-        <SbsForm></SbsForm>
+        <Statistics />
         <div id="quote">
           <h1>
             “Health is not valued until<br></br> sickness comes”{" "}
