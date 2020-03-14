@@ -1,28 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
 
-
-.statistic-container{
+.statistic-container {
     height: 15rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 3rem;
 
-
-    h4{
+    h4 {
         font-family: 'Overlock', cursive;
     }
 
-
-    .counter-box{
+    .counter-box {
+        display: flex;
+        flex-direction: column;
         margin: 10rem auto;
         color: rgb(14, 9, 9);
-        width: 20rem;
-        height: 12rem;
-        border-radius: 10px;
         text-align: center;
         padding: 2rem;
 
-        p{
+        span {
             font-size: 3rem;
         }
     }

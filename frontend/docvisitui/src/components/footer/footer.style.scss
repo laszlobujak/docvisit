@@ -1,18 +1,18 @@
-.footer-container{
+.footer-container {
     width: 100%;
     height: 20rem;
     background-color: #BBE1FA;
     margin-top: 30rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
-    .menu-item{
+
+    .menu-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin: 3rem auto;
     }
 
-    #nurse-and-doctor{
+    #nurse-and-doctor {
         background-image: url("../../materials/worker.png");
         background-repeat: no-repeat;
         background-size: contain;
@@ -24,7 +24,7 @@
     }
 }
 
-.icon{
+.icon {
     background-repeat: no-repeat;
     background-size: contain;
     width: 2rem;
@@ -34,10 +34,10 @@
     float: right;
 }
 
-#instagram{
+#instagram {
     background-image: url("../../materials/instagram.png");
 }
 
-#facebook{
+#facebook {
     background-image: url("../../materials/facebook.png");
 }

@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
 
-.main-container{
+.main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    .text-container{
+    .text-container {
         display: grid;
         grid-template-rows: 55% 1fr 1fr;
 
-        #main-title{
+        #main-title {
             display: flex;
             justify-content: center;
             align-items: flex-end;
             font-family: 'Overlock', cursive;
             font-size: 4rem;
 
-            #hearth{
+            #hearth {
                 background-image: url("../../materials/blue-hearth.png");
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -23,7 +23,7 @@
                 height: 5rem;
             }
 
-            p{
+            p {
                 font-size: 10rem;
                 color: #1266cd;
                 position: relative;
@@ -32,22 +32,22 @@
             }
 
         }
-        
-        #informal-text{
+
+        #informal-text {
             margin-top: 2rem;
             text-align: left;
             margin-left: 12rem;
             font-family: 'Overlock', cursive;
         }
 
-        #read-more{
+        #read-more {
             background-color: #192965;
             width: 15rem;
             height: 3rem;
             border-radius: 20px;
             margin: 0 auto;
 
-            p{
+            p {
                 color: white;
                 margin: auto;
             }
@@ -55,7 +55,7 @@
     }
 
 
-    #main-blue-shape{
+    #main-blue-shape {
         background-image: url("../../materials/blue-shape.png");
         width: 50rem;
         height: 40rem;
@@ -63,7 +63,7 @@
         background-size: contain;
         margin-right: -3rem;
 
-        #workers{
+        #workers {
             background-image: url("../../materials/docurs.png");
             background-repeat: no-repeat;
             background-size: contain;
@@ -73,17 +73,17 @@
             left: 7rem;
             top: 2rem;
         }
-    } 
+    }
 }
 
 
- #quote{
+#quote {
     margin-top: 20rem;
     width: 100%;
     height: 23rem;
     background-color: #192965;
 
-    h1{
+    h1 {
         color: white;
         font-family: 'Overlock', cursive;
         font-size: 4rem;
@@ -92,7 +92,7 @@
         top: 4rem;
     }
 
-    p{
+    p {
         float: right;
         position: relative;
         right: 6rem;
@@ -101,14 +101,14 @@
     }
 }
 
-.doctors-and-infos{
+.doctors-and-infos {
     margin-top: 6rem;
     width: 100%;
     height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    #stethoscope{
+    #stethoscope {
         background-image: url("../../materials/stetoschope.jpg");
         background-repeat: no-repeat;
         width: 20rem;
@@ -117,7 +117,7 @@
         margin: auto;
     }
 
-    #medical{
+    #medical {
         background-image: url("../../materials/medical.png");
         background-repeat: no-repeat;
         width: 20rem;
@@ -126,12 +126,12 @@
         margin: auto;
     }
 
-    .text{
+    .text {
         margin: auto;
         padding: 6rem;
     }
 
-    .more-infos{
+    .more-infos {
         background-color: transparent;
         border: none;
         color: #192965;
@@ -141,7 +141,7 @@
 }
 
 
-#form-title{
+#form-title {
     display: flex;
     justify-content: center;
     margin-top: 15rem;

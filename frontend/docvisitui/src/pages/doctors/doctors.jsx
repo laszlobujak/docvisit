@@ -1,29 +1,40 @@
-import React from 'react'
-import Nav from '../../components/nav/nav.component'
-import SearchBar from '../../components/searchbar/searchbar.component'
+import React, { useState, useEffect } from 'react';
+import Nav from '../../components/nav/nav.component';
+import SearchBar from '../../components/searchbar/searchbar.component';
 import Card from '../../components/card/card.component';
 
 //style
 import './doctors.style.scss';
 
-function Doctors(){
+const Doctors = () => {
+  const [doctors, setDoctors] = useState([]);
 
-    const exampleDoctors = [];
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/users'
+      );
+      const doctors = await response.json();
+      const names = doctors.map(doc => doc.name);
+      setDoctors(names);
+    };
+    fetchDoctors();
+  }, []);
 
-    for(let i = 0; i < 5; ++i){
-        exampleDoctors.push(<Card />)
-    }
-
-
-    return (
-      <div>
-        <div className="top-container"><Nav />
-          <h2>Doctors</h2>
-        </div>
-        <SearchBar />
-        <div className="doctor-cards">{exampleDoctors}</div>
+  return (
+    <div>
+      <div className="top-container">
+        <Nav />
+        <h2>Doctors</h2>
       </div>
-    );
-}
+      <SearchBar />
+      <div className="doctor-cards">
+        {doctors.map(doc => (
+          <Card key={doc} docName={doc} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default Doctors;
