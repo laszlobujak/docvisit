@@ -1,7 +1,24 @@
+.top-container {
+  width: 100%;
+  height: 15rem;
+  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 24%, 58% 64%, 0 81%, 0 0);
+          clip-path: polygon(50% 0%, 100% 0, 100% 24%, 58% 64%, 0 81%, 0 0);
+  background-color: #192965;
+}
+
+.top-container h2 {
+  color: white;
+  margin-left: 2rem;
+}
+
 .doctor-cards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 /*# sourceMappingURL=doctors.style.css.map */

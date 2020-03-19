@@ -23,3 +23,31 @@
         }
     }
 }
+
+
+@media screen and (max-width: 1300px) {
+    .statistic-container {
+        .counter-box {
+            margin: 6rem auto;
+            span {
+            font-size: 2rem;
+        }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .statistic-container {
+        .counter-box {
+            margin: 3.5rem auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .statistic-container {
+        .counter-box {
+            margin: -1rem auto;
+        }
+    }
+}
