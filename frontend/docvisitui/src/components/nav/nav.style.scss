@@ -1,35 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
+
+$main-text-color: #192965;
+
 .nav-container {
+    color: rgb(248, 248, 248);
+    text-align: center;
+
+    .navbar-toggler-icon i{
+        font-size: 2.5rem;
+    }
 
     a {
-        color: #192965;
+        color: $main-text-color;
         letter-spacing: 0.07rem;
         margin: 0.5rem;
     }
 
     button {
-        color: #192965;
+        color: $main-text-color;
         border: none;
         margin: 1rem;
         padding: 0;
     }
 
     .promt-window {
-        width: 18rem;
-        height: 10rem;
+        width: 15rem;
+        height: 15rem;
         z-index: 100;
         position: absolute;
+        background-image: url("../../materials/pop-up.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+            h5 {
+                margin-top: 6rem;
+                font-family: 'Overlock', cursive;
+            }
+    }
+
+    .for-call{
         top: 4rem;
-        right: 7rem;
-        background-color: rgb(83, 88, 90);
-        clip-path: polygon(86% 4%, 76% 20%, 100% 21%, 100% 100%, 0 100%, 0 24%, 57% 21%);
+        right: 9rem;
     }
 
-    color: rgb(248, 248, 248);
-    text-align: center;
-
-    h5 {
-        margin-top: 4rem;
+    .for-chat{
+        top: 4rem;
+        right: 4rem;
     }
+
 }
 
 .hidden {

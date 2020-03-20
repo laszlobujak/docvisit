@@ -31,8 +31,8 @@
   background-image: url("../../materials/blue-hearth.png");
   background-size: contain;
   background-repeat: no-repeat;
-  width: 7rem;
-  height: 5rem;
+  width: 16%;
+  height: 20%;
 }
 
 .main-container .text-container #main-title p {
@@ -47,6 +47,7 @@
   margin-top: 2rem;
   text-align: left;
   margin-left: 12rem;
+  font-family: 'Overlock', cursive;
 }
 
 .main-container .text-container #read-more {
@@ -54,13 +55,17 @@
   width: 15rem;
   height: 3rem;
   border-radius: 20px;
-  color: white;
   margin: 0 auto;
+}
+
+.main-container .text-container #read-more p {
+  color: white;
+  margin: auto;
 }
 
 .main-container #main-blue-shape {
   background-image: url("../../materials/blue-shape.png");
-  width: 50rem;
+  width: 100%;
   height: 40rem;
   background-repeat: no-repeat;
   background-size: contain;
@@ -71,7 +76,7 @@
   background-image: url("../../materials/docurs.png");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 40rem;
+  width: 90%;
   height: 30rem;
   position: relative;
   left: 7rem;
@@ -112,17 +117,19 @@
       grid-template-columns: 1fr 1fr;
 }
 
+.doctors-and-infos .row {
+  width: 50rem;
+}
+
 .doctors-and-infos #stethoscope {
   background-image: url("../../materials/stetoschope.jpg");
-  background-repeat: no-repeat;
-  width: 20rem;
-  height: 20rem;
-  background-size: contain;
-  margin: auto;
 }
 
 .doctors-and-infos #medical {
   background-image: url("../../materials/medical.png");
+}
+
+.doctors-and-infos .side-pictures {
   background-repeat: no-repeat;
   width: 20rem;
   height: 20rem;
@@ -139,15 +146,5 @@
   background-color: transparent;
   border: none;
   color: #192965;
-}
-
-#form-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 15rem;
 }
 /*# sourceMappingURL=homepage.style.css.map */

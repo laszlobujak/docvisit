@@ -1,3 +1,13 @@
+#frame {
+  background-image: url("../../materials/frame.png");
+  background-size: contain;
+  width: 60%;
+  height: 60rem;
+  background-repeat: no-repeat;
+  margin: auto;
+  padding: 2rem;
+}
+
 .align-text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5,9 +15,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-h1 {
   margin-top: 5rem;
 }
 
@@ -25,5 +32,9 @@ h1 {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 5rem;
+}
+
+.form-container .form-check {
+  margin: 2rem 0;
 }
 /*# sourceMappingURL=sign-up.style.css.map */
