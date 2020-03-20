@@ -1,55 +1,97 @@
-var express = require('express')
-var router = express.Router()
-const Appointment = require('../models/Appointment')
-const User = require('../models/User')
+require('dotenv').config();
+const express = require('express');
+const Appointment = require('../models/Appointment');
+const auth = require('../middleware/auth');
 
-router.get('/appointment/:userid', async (req, res) => { //Get all appointments by UserId
-    var userid = req.params.userid;
-    User.find({ userId: userid }, function (err, tasks) {
-        if (err)
-            res.send(err);
+const router = new express.Router();
 
-        res.json(tasks);
-
-    })
-})
-
-router.patch('appointment/:id', async (req, res, next) => { //Update an appiontment by id
-    Appointment.update({ appointment: req.body.appointment }, { where: { id: req.params.id } })
-        .then((result) => {
-            res.json(result);
-        })
-        .catch((err) => {
-            console.error(err);
-            next(err);
-        });
+router.post('/appointments', auth, async (req, res) => {
+  const appointment = new Appointment({
+    ...req.body,
+    patient: req.user.id
+  });
+  try {
+    await appointment.save();
+    res.status(201).send(appointment);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
 
-router.delete('/appointment/:id', async (req, res) => { //Delete appointment by id
-    Appointment.remove({
-        id: req.params.id
-      }), function (err, appointment) {
-        if (err) {
-          return res.send(err);
-        }
-  
-        res.json({ message: 'Deleted' });
-      }; 
+router.get('/appointments', auth, async (req, res) => {
+  try {
+    await req.user
+      .populate({
+        path: 'appointments'
+      })
+      .execPopulate();
+    res.send(req.user.appointments);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
-router.delete('/:identifier', (req, res) => {
-    
-});
-
-router.post('/appointment', async (req, res, next) => { //Add appointment
-    try {
-        const { description, doctor,patient,date } = req.body
-        const appointment = new Appointment({ description,doctor,patient,date })
-        const ret = await appointment.save()
-        res.json(ret)
-    } catch (error) {
-        return next(error)
+router.get('/appointments/:id', auth, async (req, res) => {
+  const _id = req.params.id;
+  try {
+    const appointment = await Appointment.findOne({
+      _id,
+      patient: req.user._id
+    });
+    if (!appointment) {
+      return res.status(404).send();
     }
-})
+    res.send(appointment);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
-module.exports = router
+router.patch('/appointments/:id', auth, async (req, res) => {
+  const updates = Object.keys(req.body);
+  const allowedUpdates = ['description', 'date'];
+  const isValidOperation = updates.every(update =>
+    allowedUpdates.includes(update)
+  );
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: 'Invalid operation!' });
+  }
+
+  try {
+    const appointment = await Appointment.findOne({
+      _id: req.params.id,
+      patient: req.user._id
+    });
+    if (!appointment) {
+      return res.status(404).send();
+    }
+
+    updates.forEach(update => {
+      appointment[update] = req.body[update];
+    });
+    await appointment.save();
+    res.send(appointment);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+router.delete('/appointments/:id', auth, async (req, res) => {
+  try {
+    const appointment = await Appointment.findOneAndDelete({
+      _id: req.params.id,
+      patient: req.user._id
+    });
+
+    if (!appointment) {
+      return res.status(404).send();
+    }
+
+    res.send(appointment);
+  } catch (error) {
+    res.status(505).send();
+  }
+});
+
+module.exports = router;
