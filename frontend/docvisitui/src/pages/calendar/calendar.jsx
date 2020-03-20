@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 //style
 import './calendar.style.scss';
@@ -7,15 +7,15 @@ import './calendar.style.scss';
 import Nav from '../../components/nav/nav.component';
 import SbsForm from '../../components/step-by-step-form/sbs-form.component';
 
-function Calendar(){
-    return (
+function Calendar() {
+  return (
+    <div>
+      <Nav />
       <div>
-        <Nav />
-        <div>
-          <SbsForm></SbsForm>
-        </div>
+        <SbsForm />
       </div>
-    );
-    }
-    
+    </div>
+  );
+}
+
 export default Calendar;

@@ -1,24 +1,30 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 //style
 import './nav.style.scss';
 
 //import common functions
-import {show_div_element, hide_div_element} from '../../common-functions';
+import { show_div_element, hide_div_element } from '../../common-functions';
 
-function Nav(){
+const Nav = () => {
 
+  const toggleCallWindow = e => {
+    show_div_element(document.getElementsByClassName('for-call')[0]);
+    setTimeout(() => {
+      hide_div_element(document.getElementsByClassName('for-call')[0]);
+    }, 1200);
+  };
 
-  let toggleCallWindow = () => {
-    show_div_element(document.getElementsByClassName("promt-window")[0]);
-    setTimeout(()=>{
-      hide_div_element(document.getElementsByClassName("promt-window")[0]);
-    },1200)
-  }
+  const toggleChatWindow = e => {
+    show_div_element(document.getElementsByClassName('for-chat')[0]);
+    setTimeout(() => {
+      hide_div_element(document.getElementsByClassName('for-chat')[0]);
+    }, 1200);
+  };
 
-  return(
-    <nav class="navbar navbar-expand-lg nav-container">
+  return (
+    <nav className="navbar navbar-expand-lg nav-container">
       <button
         class="navbar-toggler"
         type="button"
@@ -28,35 +34,40 @@ function Nav(){
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"><i class="material-icons">reorder</i></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link to="/signup">Sign up</Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link to="/login">Log in</Link>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="nav-link" href="#" onClick={toggleCallWindow}>
-            Call<i class="material-icons">phone</i>
-          </button>
-          <button class="nav-link" href="#" >
-            Chat <i class="material-icons">chat_bubble_outline</i>
-          </button>
-        </form>
-        <div className="hidden promt-window">
+
+        <button className="nav-link" href="#" onClick={toggleCallWindow}>
+          Call<i className="material-icons">phone</i>
+        </button>
+        <button className="nav-link" href="#" onClick={toggleChatWindow}>
+          Chat <i className="material-icons">chat_bubble_outline</i>
+        </button>
+
+        <div className="hidden promt-window for-call">
           <h5>Phone number : +3040506000000</h5>
         </div>
+
+        <div className="hidden promt-window for-chat">
+          <h5>Skype : doc_visit</h5>
+        </div>
+
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Nav;

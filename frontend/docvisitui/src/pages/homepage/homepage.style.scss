@@ -1,90 +1,108 @@
 @import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
 
-.main-container{
+$common-colors: (
+    "medium-blue": #1266cd,
+    "dark-blue": #192965,
+    "light": white
+);
+
+
+.main-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    .text-container{
+    .text-container {
         display: grid;
         grid-template-rows: 55% 1fr 1fr;
 
-        #main-title{
+        #main-title {
             display: flex;
             justify-content: center;
             align-items: flex-end;
             font-family: 'Overlock', cursive;
             font-size: 4rem;
+            margin-bottom: 4rem;
 
-            #hearth{
+            #hearth {
                 background-image: url("../../materials/blue-hearth.png");
                 background-size: contain;
                 background-repeat: no-repeat;
-                width: 7rem;
-                height: 5rem;
+                width: 16%;
+                height: 20%;
             }
 
-            p{
+            p {
                 font-size: 10rem;
-                color: #1266cd;
+                color: map-get($common-colors, "medium-blue");
                 position: relative;
                 margin-left: 1rem;
                 top: 2.5rem;
             }
 
         }
-        
-        #informal-text{
-            margin-top: 2rem;
+
+        #informal-text {
             text-align: left;
             margin-left: 12rem;
             font-family: 'Overlock', cursive;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+
+            #list{
+                margin:1rem;
+                line-height: 2rem;
+            }
+
+            span{
+                color: map-get($common-colors, "medium-blue");
+            }
         }
 
-        #read-more{
-            background-color: #192965;
+        #read-more {
+            background-color: map-get($common-colors, "dark-blue");
             width: 15rem;
             height: 3rem;
             border-radius: 20px;
             margin: 0 auto;
 
-            p{
-                color: white;
+            p {
+                color: map-get($common-colors, "light");
                 margin: auto;
             }
         }
     }
 
 
-    #main-blue-shape{
-        background-image: url("../../materials/blue-shape.png");
-        width: 50rem;
+    #main-blue-shape {
+        background-image: url("../../materials/blue-shape.png") ;
+        width:100%;
         height: 40rem;
         background-repeat: no-repeat;
         background-size: contain;
         margin-right: -3rem;
+        margin-top: 6rem;
 
-        #workers{
+        #workers {
             background-image: url("../../materials/docurs.png");
             background-repeat: no-repeat;
             background-size: contain;
-            width: 40rem;
+            width: 90%;
             height: 30rem;
             position: relative;
-            left: 7rem;
-            top: 2rem;
+            left: 5rem;
         }
-    } 
+    }
 }
 
 
- #quote{
+#quote {
     margin-top: 20rem;
     width: 100%;
     height: 23rem;
-    background-color: #192965;
+    background-color: map-get($common-colors, "dark-blue");
 
-    h1{
-        color: white;
+    h1 {
+        color: map-get($common-colors, "light");
         font-family: 'Overlock', cursive;
         font-size: 4rem;
         position: relative;
@@ -92,33 +110,30 @@
         top: 4rem;
     }
 
-    p{
+    p {
         float: right;
         position: relative;
         right: 6rem;
         top: 4rem;
-        color: white;
+        color: map-get($common-colors, "light");
     }
 }
 
-.doctors-and-infos{
+.doctors-and-infos {
     margin-top: 6rem;
     width: 100%;
     height: 500px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ 
 
-    #stethoscope{
+    #stethoscope {
         background-image: url("../../materials/stetoschope.jpg");
-        background-repeat: no-repeat;
-        width: 20rem;
-        height: 20rem;
-        background-size: contain;
-        margin: auto;
     }
 
-    #medical{
+    #medical {
         background-image: url("../../materials/medical.png");
+    }
+
+    .side-pictures {
         background-repeat: no-repeat;
         width: 20rem;
         height: 20rem;
@@ -126,23 +141,157 @@
         margin: auto;
     }
 
-    .text{
+
+    .text {
         margin: auto;
         padding: 6rem;
     }
 
-    .more-infos{
+    .more-infos {
         background-color: transparent;
         border: none;
-        color: #192965;
+        color: map-get($common-colors, "dark-blue");
     }
-
-
 }
 
 
-#form-title{
-    display: flex;
-    justify-content: center;
-    margin-top: 15rem;
+@media screen and (max-width: 1300px) {
+    .main-container {
+        .text-container{
+            grid-template-rows: 45% 1fr 1fr;
+
+            #informal-text {
+                text-align: left;
+                margin-left: 8rem;
+                font-size: small;
+            }
+            #read-more {
+                width: 11rem;
+                height: 2.5rem;
+                font-size: small;
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    #quote {
+        margin-top: 17rem;
+        height: 19rem;
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .doctors-and-infos {
+        margin-top: 4rem;
+        width: 100%;
+
+        .side-pictures {
+            width: 14rem;
+            height: 15rem;
+        }
+        .text {
+            margin: 2rem auto;
+            padding: 2rem;
+            font-size: small;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-container {
+        .text-container{
+            grid-template-rows: 40% 1fr 1fr;
+
+            #main-title{
+                font-size: 3.3rem ;
+            }
+            #informal-text {
+                margin-left: 6rem ;
+                font-size: small;
+            }
+            #read-more {
+                width: 10rem;
+                height: 2rem;
+                font-size: small;
+            }
+        }
+        
+    }
+    #quote {
+        margin-top: 11rem;
+        height: 16rem;
+        h1 {
+            font-size: 2.4rem;
+        }
+    }
+    .doctors-and-infos {
+        margin-top: 4rem;
+        width: 100%;
+
+        .side-pictures {
+            width: 14rem;
+            height: 15rem;
+            margin-top: 4rem;
+        }
+        .text {
+            margin: 2rem auto;
+            padding: 2rem;
+            font-size: small;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .main-container{
+        .text-container{
+            grid-template-rows: 30% 1fr 1fr;
+
+            #main-title{
+                font-size: 2.5rem ;
+                
+                p{
+                    font-size: 6rem;
+                }
+            }
+
+            #informal-text {
+                margin-left: 4rem ;
+                font-size: x-small;
+            }
+
+            #main-blue-shape{
+                margin-top: 6rem;
+                margin-right: 0;
+                
+                #workers {
+                    width: 80% !important;
+                }
+            }
+        }
+        
+    }
+    #quote {
+        margin-top: 6rem;
+        height: 13rem;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .doctors-and-infos {
+        margin-top: 2rem;
+        width: 100%;
+
+        .side-pictures {
+            width: 10rem;
+            height: 10rem;
+            margin-top: 4rem;
+        }
+        .text {
+            margin: 2rem auto;
+            padding: 2rem;
+            font-size: small;
+        }
+    }
 }

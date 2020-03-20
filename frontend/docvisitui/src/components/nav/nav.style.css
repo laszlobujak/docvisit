@@ -1,6 +1,38 @@
+.nav-container {
+  color: #f8f8f8;
+  text-align: center;
+}
+
 .nav-container a {
-  color: #192965 !important;
+  color: #192965;
   letter-spacing: 0.07rem;
   margin: 0.5rem;
+}
+
+.nav-container button {
+  color: #192965;
+  border: none;
+  margin: 1rem;
+  padding: 0;
+}
+
+.nav-container .promt-window {
+  width: 18rem;
+  height: 10rem;
+  z-index: 100;
+  position: absolute;
+  top: 4rem;
+  right: 7rem;
+  background-color: #53585a;
+  -webkit-clip-path: polygon(86% 4%, 76% 20%, 100% 21%, 100% 100%, 0 100%, 0 24%, 57% 21%);
+          clip-path: polygon(86% 4%, 76% 20%, 100% 21%, 100% 100%, 0 100%, 0 24%, 57% 21%);
+}
+
+.nav-container h5 {
+  margin-top: 4rem;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=nav.style.css.map */

@@ -1,10 +1,20 @@
-.align-text{
-        display: flex;
-    justify-content: center;
+$fixed-margin-common: 5rem;
+
+
+#frame{
+    background-image: url("../../materials/frame.png");
+    background-size: contain;
+    width: 60%;
+    height: 60rem;
+    background-repeat: no-repeat;
+    margin: auto;
+    padding: 2rem;
 }
 
-h1{
-    margin-top: 5rem;
+.align-text{
+    display: flex;
+    justify-content: center;
+    margin-top: $fixed-margin-common;
 }
 
 .dot-separator{
@@ -16,5 +26,9 @@ h1{
 .form-container{
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
+    margin-top: $fixed-margin-common;
+
+    .form-check{
+        margin: 2rem 0;
+    }
 }

@@ -1,11 +1,26 @@
+@import url("https://fonts.googleapis.com/css?family=Overlock&display=swap");
 .card-container {
   width: 25rem;
-  height: 13rem;
-  -webkit-box-shadow: -9px 15px 5px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: -9px 15px 5px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
+  height: 14rem;
   margin: 2rem;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.card-container .colored-header {
+  width: 25rem;
+  height: 5rem;
+  border-top-left-radius: 20px;
+  background-color: #BBE1FA;
+  position: absolute;
 }
 
 .card-container .avatar {
@@ -18,5 +33,20 @@
   border: solid 0.4em #fcfeff;
   position: relative;
   z-index: 100;
+}
+
+.card-container h4 {
+  color: black;
+  z-index: 100;
+  margin: 1rem;
+  font-family: 'Overlock', cursive;
+}
+
+.card-container .book-button {
+  width: 8rem;
+  height: 4rem;
+  margin: 6rem auto;
+  background-color: transparent;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=card.style.css.map */

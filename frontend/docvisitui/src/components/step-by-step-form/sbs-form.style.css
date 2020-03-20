@@ -5,20 +5,24 @@
 
 .sbs-form-container .form {
   margin: 8rem auto;
-  width: 80%;
+  width: 70%;
   background-color: #767e68;
   border-radius: 4rem;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#DCE0E3), to(white));
   background-image: linear-gradient(#DCE0E3, white);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 10% 1fr 1fr;
-      grid-template-columns: 10% 1fr 1fr;
+  -ms-grid-columns: 10% 1fr;
+      grid-template-columns: 10% 1fr;
+}
+
+.sbs-form-container .form .calendar {
+  width: 60%;
 }
 
 .sbs-form-container .form #vertical-line {
   width: 3px;
-  height: 40rem;
+  height: 35rem;
   background-color: #D3D3D3;
   position: relative;
   margin: auto;
@@ -26,8 +30,8 @@
 }
 
 .sbs-form-container .form .dot {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -39,12 +43,12 @@
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  left: -2rem;
+  left: -1.4rem;
 }
 
 .sbs-form-container .form .active {
   background-color: #5A82BE;
-  margin-bottom: 15rem;
+  margin-bottom: 25rem;
 }
 
 .sbs-form-container .form .inactive-dots {
@@ -54,5 +58,45 @@
 
 .first-block-of-infos {
   margin-top: 10rem;
+  display: block;
+}
+
+.first-block-of-infos .doctor {
+  background-image: url("../../materials/doctor.png");
+  background-size: contain;
+  width: 3rem;
+  height: 3rem;
+}
+
+.first-block-of-infos #apppointment-date {
+  text-decoration: underline;
+}
+
+.first-block-of-infos .btn {
+  width: 7rem;
+  height: 2.5rem;
+  position: relative;
+  top: 3rem;
+}
+
+.second-block-of-infos {
+  margin-top: 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.second-block-of-infos .doctor {
+  background-image: url("../../materials/doctor.png");
+  background-size: contain;
+  width: 3rem;
+  height: 3rem;
+}
+
+.second-block-of-infos .btn {
+  width: 7rem;
+  height: 2.5rem;
+  position: relative;
+  top: 8rem;
 }
 /*# sourceMappingURL=sbs-form.style.css.map */

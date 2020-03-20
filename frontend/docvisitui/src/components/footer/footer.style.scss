@@ -1,18 +1,18 @@
-.footer-container{
+.footer-container {
     width: 100%;
     height: 20rem;
     background-color: #BBE1FA;
-    margin-top: 30rem;
+    margin-top: 45rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    
-    .menu-item{
+
+    .menu-item {
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin: 3rem auto;
     }
 
-    #nurse-and-doctor{
+    #nurse-and-doctor {
         background-image: url("../../materials/worker.png");
         background-repeat: no-repeat;
         background-size: contain;
@@ -24,7 +24,7 @@
     }
 }
 
-.icon{
+.icon {
     background-repeat: no-repeat;
     background-size: contain;
     width: 2rem;
@@ -34,10 +34,43 @@
     float: right;
 }
 
-#instagram{
+#instagram {
     background-image: url("../../materials/instagram.png");
 }
 
-#facebook{
+#facebook {
     background-image: url("../../materials/facebook.png");
+}
+
+@media screen and (max-width: 1300px) {
+    .footer-container {
+        margin-top: 20rem;
+        height: 14rem;
+
+        #nurse-and-doctor {
+            width: 13rem;
+            top: -10rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .footer-container {
+        margin-top: 23rem;
+        height: 13rem;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .footer-container {
+        margin-top: 23rem;
+        height: 13rem;
+        
+        #nurse-and-doctor {
+            width: 10rem;
+            top: -6rem;
+        }
+    }
+
+    
 }

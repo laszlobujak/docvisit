@@ -1,54 +1,63 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 //style
 import './statistic.style.scss';
-import { render } from '@testing-library/react';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 class Statistics extends Component {
   constructor() {
     super();
-    this.state= {   
-        "doctor" : 0,
-        "patient" : 0
 
-    }
+    this.state = {
+      active: true,
+      active2: true
+    };
   }
 
-/*     counter_to_target = () => {
-      for(let i = 0; i < 1200; ++i){
-          setTimeout(() => {
-              this.setState({ doctor: i });
-              document.getElementById(
-                "_count_to_target_patient"
-              ).innerHTML = `<p>${this.state.patient}</p>`;
-              this.setState({ patient: i });
-              document.getElementById(
-                "_count_to_target_doctor"
-              ).innerHTML = `<p>${this.state.doctor}</p>`;
-          },340);
-      }
-  } */
-
   render() {
-
-/*     window.addEventListener("scroll", () => {
-      if (window.scrollY >= 200) {
-        console.log("most")
-        this.counter_to_target();
-      }
-    }); */
-
     return (
       <div className="statistic-container">
         <div className="counter-box patient">
           <i className="material-icons">accessibility</i>
-          <p id="_count_to_target_patient"></p>
+          <CountUp end={1200} redraw={true}>
+            {({ countUpRef, start }) => (
+              <VisibilitySensor
+                onChange={isVisible => {
+                  start();
+                  this.setState({
+                    active: !isVisible
+                  });
+                }}
+                delayedCall
+                active={this.state.active}
+              >
+                {() => <span ref={countUpRef} />}
+              </VisibilitySensor>
+            )}
+          </CountUp>
           _____________________
           <h5>Patients</h5>
         </div>
+
         <div className="counter-box">
           <i className="material-icons">people</i>
-          <p id="_count_to_target_doctor"></p>
+          <CountUp end={29} redraw={true}>
+            {({ countUpRef, start }) => (
+              <VisibilitySensor
+                onChange={isVisible => {
+                  start();
+                  this.setState({
+                    active2: !isVisible
+                  });
+                }}
+                delayedCall
+                active={this.state.active2}
+              >
+                {() => <span ref={countUpRef} />}
+              </VisibilitySensor>
+            )}
+          </CountUp>
           _____________________
           <h5>Doctors</h5>
         </div>
