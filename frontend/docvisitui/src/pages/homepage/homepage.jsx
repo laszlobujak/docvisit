@@ -17,8 +17,9 @@ function HomePage() {
           <h2 id="main-title">
             <div id="hearth"></div>DocVisit<p>.</p>
           </h2>
-          <p id="informal-text">
+          <div id="informal-text">
             Nowadays everything has moved to the internet.
+
           <ul id="list">
             <li>We communicate</li>
             <li>work</li>
@@ -28,7 +29,7 @@ function HomePage() {
             why do we still have to pick up the phone
             to get an appointment to our doctor? DocVisit tries to solve that
             problem for you.
-          </p>
+          </div>
           <button id="read-more">
             <Link to="/signup">
               <p>Try now</p>

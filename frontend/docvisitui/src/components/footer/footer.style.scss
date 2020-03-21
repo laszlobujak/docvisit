@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 1050px) {
     .footer-container {
-        margin-top: 23rem;
+        margin-top: 25rem;
         height: 13rem;
         
         #nurse-and-doctor {
@@ -73,4 +73,25 @@
     }
 
     
+}
+
+
+@media screen and (max-width: 450px) {
+    .footer-container {
+        margin-top: 20rem;
+
+        .menu-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .nav-link{
+            padding: 0;
+            width: 4rem;
+        }
+
+    }
+    .icon {
+        margin:0.3rem;
+    }
+    }
 }

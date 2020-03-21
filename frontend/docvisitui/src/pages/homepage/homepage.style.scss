@@ -13,7 +13,7 @@ $common-colors: (
 
     .text-container {
         display: grid;
-        grid-template-rows: 55% 1fr 1fr;
+        grid-template-rows: 40% 1fr 1fr;
 
         #main-title {
             display: flex;
@@ -80,7 +80,7 @@ $common-colors: (
         background-repeat: no-repeat;
         background-size: contain;
         margin-right: -3rem;
-        margin-top: 6rem;
+        margin-top: 4rem;
 
         #workers {
             background-image: url("../../materials/docurs.png");
@@ -245,7 +245,7 @@ $common-colors: (
 @media screen and (max-width: 1050px) {
     .main-container{
         .text-container{
-            grid-template-rows: 30% 1fr 1fr;
+            grid-template-rows: 30% 30% 1fr;
 
             #main-title{
                 font-size: 2.5rem ;
@@ -265,7 +265,7 @@ $common-colors: (
                 margin-right: 0;
                 
                 #workers {
-                    width: 80% !important;
+                    width: 80%;
                 }
             }
         }
@@ -294,4 +294,166 @@ $common-colors: (
             font-size: small;
         }
     }
+}
+
+@media screen and (max-width: 900px) {
+    .main-container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+
+        .text-container{
+            grid-template-rows: 25% 30% 1fr;
+
+            #main-title{
+                font-size: 2rem ;
+                margin: 2rem;
+                
+                p{
+                    margin-bottom: 2.4rem;
+                    font-size: 2rem;
+                }
+            }
+
+             #informal-text {
+                text-align: left;
+                margin-left: 2rem;
+                font-size: 5px;
+            }
+
+            #read-more {
+                width: 8rem;
+                height: 2rem;
+                font-size: small;
+            }
+        }
+
+    }
+    #quote {
+            margin-top: 0rem;
+            height: 13rem;
+        h1 {
+            font-size: 1rem;
+        }
+        
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+
+
+        .text-container{
+            margin-top: 1rem;
+            grid-template-rows: 20% 30% 1fr;
+
+            #informal-text {
+            letter-spacing: 0.1rem;
+            font-weight: bolder;
+            font-size: 0.7rem;
+
+                #list{
+                    line-height: 0.5rem;
+                }
+            }
+
+            #read-more {
+                width: 8rem;
+                height: 2rem;
+                font-size: small;    
+            }
+        }
+
+    #main-blue-shape {
+        margin-top: 3rem;
+        width: 100%;
+        height: 10rem;
+        background-image: url("../../materials/doctor-field.png");
+
+        #workers {
+            left: 2rem;
+            width: 60%;
+            height: 12rem;
+            margin: -6rem auto;
+        }
+    }
+}
+    #quote {
+            margin-top: 0rem;
+            height: 10rem;
+        h1 {
+            font-size: 1rem;
+        }
+
+        p{
+            font-size: x-small;
+        }
+
+    }
+.doctors-and-infos {
+    margin-top: 3rem;
+    width: 100%;
+    height: 400px;
+ 
+
+    #stethoscope {
+        background-image: url("../../materials/stetoschope.jpg");
+    }
+
+    #medical {
+        background-image: url("../../materials/medical.png");
+    }
+
+    .side-pictures {
+        background-repeat: no-repeat;
+        width: 5rem;
+        height: 5rem;
+        background-size: contain;
+        margin: -1rem auto;
+    }
+
+    .text{
+        font-size: 0.5rem;
+        margin: 0;
+    }
+}
+}
+
+@media screen and (max-width: 450px) {
+.main-container .text-container {
+    grid-template-rows: 30% 1fr 1fr;
+    #read-more {
+        width: 6rem;
+        font-size: small;   
+    }
+}
+.doctors-and-infos {
+    margin-top: 3rem;
+    width: 100%;
+    height: 400px;
+ 
+
+    #stethoscope {
+        background-image: url("../../materials/stetoschope.jpg");
+    }
+
+    #medical {
+        background-image: url("../../materials/medical.png");
+    }
+
+    .side-pictures {
+        background-repeat: no-repeat;
+        width: 5rem;
+        height: 5rem;
+        background-size: contain;
+        margin: -1rem auto;
+    }
+
+    .text{
+        font-size: 0.5rem;
+        margin: 0;
+    }
+}
 }
