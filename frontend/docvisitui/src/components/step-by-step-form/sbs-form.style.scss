@@ -76,15 +76,44 @@
 
 
 .second-block-of-infos{
-    margin-top: 15rem;
-    display: flex;
+    position: relative;
+    top:14rem;
+    left: 5rem;
+    display: block;
 
-    .doctor{
-        background-image: url("../../materials/doctor.png");
-        background-size: contain;
-        width : 3rem;
-        height: 3rem;
+    #datetime{
+        width:7rem;
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        border: solid 1px grey;
+        background-color: #f0f0f0;
+
+        button{
+            width: 7rem;
+            margin: auto;
+            border-bottom: solid 1px grey;
+            padding: 0.4rem;
+            background-color: transparent;
+        }
     }
+
+    .btn{
+        width: 7rem;
+        height: 2.5rem;
+        position: relative;
+        top:2rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.third-block-of-infos{
+    position: relative;
+    margin-top: 20rem;
+    display: flex;
 
     .btn{
         width: 7rem;
@@ -92,4 +121,8 @@
         position: relative;
         top: 8rem;
     }
+}
+
+.hidden {
+    display: none;
 }

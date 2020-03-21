@@ -7,8 +7,8 @@ function LogIn(){
     return (
       <div>
         <Nav />
+        <div id="frame">
         <h1 className="align-text">Log in</h1>
-        <p className="dot-separator align-text">.......</p>
         <div className="form-container">
           <form>
             <div class="form-group">
@@ -40,10 +40,11 @@ function LogIn(){
                 Privacy policy
               </label>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-outline-primary">
               Submit
             </button>
           </form>
+        </div>
         </div>
       </div>
     );
