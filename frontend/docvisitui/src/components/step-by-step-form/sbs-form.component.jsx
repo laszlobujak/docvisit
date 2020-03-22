@@ -35,11 +35,6 @@ function SbsForm() {
   }
 
 
-  window.onload = () => {
-    hide_div_element(document.getElementsByClassName("second-block-of-infos")[0]);
-    hide_div_element(document.getElementsByClassName("third-block-of-infos")[0]);
-  }
-
 
   return (
     <div className="sbs-form-container">
@@ -58,7 +53,7 @@ function SbsForm() {
               Next
             </button>
           </div>
-          <div className="second-block-of-infos">
+          <div className="second-block-of-infos hidden">
             <h6>When:</h6>
             <div id="datetime">
               <button className="grid-date-item">9:00-10:00</button>
@@ -72,7 +67,7 @@ function SbsForm() {
               Next
             </button>
           </div>
-          <div className="third-block-of-infos">
+          <div className="third-block-of-infos hidden">
               <form>
               <h6>Your symptoms:</h6>
                 <div class="form-group">
