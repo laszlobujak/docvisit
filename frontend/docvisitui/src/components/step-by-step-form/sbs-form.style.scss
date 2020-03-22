@@ -1,21 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond&display=swap');
 
 
 .sbs-form-container{
-    margin-top: 8rem;
+    margin-top: 4rem;
+    font-family: 'EB Garamond', serif;
+
+    h3{
+        display: flex;
+        justify-content: center;
+        letter-spacing: 0.1rem;
+    }
+
+    h6{
+        font-size: 1.6rem;
+        margin: 1rem;
+    }
 
     .form{
-        margin: 8rem auto;
-        width: 70%;
+        margin: 4rem auto;
+        width: 30%;
         background-color: rgb(118, 126, 104);
-        border-radius: 4rem;
-        background-image: linear-gradient(#DCE0E3, white);
+        border-radius: 2rem;
+        background-image: linear-gradient(rgb(225, 232, 238), white);
         display: grid;
         grid-template-columns: 10% 1fr;
 
-
         .calendar{
             width: 60%;
+            margin: auto;
         }
             #vertical-line{
                 width: 3px;
@@ -23,18 +35,18 @@
                 background-color: #D3D3D3;
                 position: relative;
                 margin: auto;
-                margin-top: 5rem;
+                margin-top: 3rem;
             }
 
             .dot{
-                width: 3rem;
-                height: 3rem;
+                width: 2.4rem;
+                height: 2.4rem;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                left: -1.4rem;
+                left: -1.2rem;
             }
 
 
@@ -51,78 +63,86 @@
     }
 }
 
-.first-block-of-infos{
-    margin-top: 10rem;
-    display: block;
 
-    .doctor{
-        background-image: url("../../materials/doctor.png");
-        background-size: contain;
-        width : 3rem;
-        height: 3rem;
-    }
-
-    #apppointment-date{
-        text-decoration: underline;
-    }
-
-    .btn{
-        width: 7rem;
-        height: 2.5rem;
-        position: relative;
-        top: 3rem;
-    }
-}
-
-
-.second-block-of-infos{
-    position: relative;
-    top:14rem;
-    left: 5rem;
-    display: block;
-
-    #datetime{
-        width:7rem;
-        height: 15rem;
-        display: flex;
-        flex-direction: column;
-        border: solid 1px grey;
-        background-color: #f0f0f0;
-
-        button{
-            width: 7rem;
-            margin: auto;
-            border-bottom: solid 1px grey;
-            padding: 0.4rem;
-            background-color: transparent;
-        }
-    }
-
-    .btn{
-        width: 7rem;
-        height: 2.5rem;
-        position: relative;
-        top:2rem;
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-.third-block-of-infos{
-    position: relative;
-    margin-top: 20rem;
+.activ-form-container{
     display: flex;
 
-    .btn{
-        width: 7rem;
-        height: 2.5rem;
-        position: relative;
-        top: 8rem;
+    .first-block-of-infos{
+        margin: 5rem  auto;
+        text-align: center;
+
+        .doctor{
+            background-image: url("../../materials/doctor.png");
+            background-size: contain;
+            width : 3rem;
+            height: 3rem;
+        }
+
+        #apppointment-date{
+            text-decoration: underline;
+        }
+
+        .btn{
+            width: 7rem;
+            height: 2.5rem;
+            position: relative;
+            top: 3rem;
+        }
+    }
+}
+.activ-form-container-second{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .second-block-of-infos{
+        display: block;
+        margin-top: 4rem;
+
+        #datetime{
+            width:9rem;
+            height: 15rem;
+            display: flex;
+            flex-direction: column;
+            border: solid 1px grey;
+            background-color: #f0f0f0;
+
+            button{
+                width: 9rem;
+                margin: auto;
+                border-bottom: solid 1px grey;
+                padding: 0.4rem;
+                background-color: transparent;
+            }
+        }
+
+        .btn{
+            width: 9rem;
+            height: 2.5rem;
+            position: relative;
+            margin-top:1rem;
+        }
     }
 }
 
 .hidden {
     display: none;
+}
+
+.activ-form-container-third{
+    margin: auto;
+
+    .third-block-of-infos{
+        margin-top: 5rem;
+        display: grid;
+        grid-template-rows: 60% 40%;
+
+        .btn{
+            width: 7rem;
+            height: 2.5rem;
+            position: relative;
+            top: 4rem;
+        }
+    }
 }

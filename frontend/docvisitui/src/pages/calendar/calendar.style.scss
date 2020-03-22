@@ -1,0 +1,18 @@
+.dot-group{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15%;
+    height: 25%;
+    position: absolute;
+}
+
+#left-shape-group{
+    background-image: url("../../materials/left-group.png");
+    left: 7rem;
+}
+
+#right-shape-group{
+    background-image: url("../../materials/right-group.png");
+    top: 35rem;
+    right:0;
+}

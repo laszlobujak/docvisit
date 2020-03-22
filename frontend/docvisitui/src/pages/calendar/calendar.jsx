@@ -10,10 +10,12 @@ import SbsForm from '../../components/step-by-step-form/sbs-form.component';
 
 function Calendar() {
   return (
-    <div>
+    <div> 
       <Nav />
-      <div>
+      <div className="calendar-container">
+        <div id="left-shape-group" className="dot-group"></div>
         <SbsForm />
+        <div id="right-shape-group" className="dot-group"></div>
       </div>
     </div>
   );
