@@ -14,17 +14,12 @@ function PersonalSite(){
         <div className="account-layout">
           <div>
             <div id="avatar"></div>
-            <Link>
-              <div className="bubble visit-doctors-page">
-                <i class="material-icons">assignment</i>
-              </div>
-            </Link>
             <Link to="/doctors">
               <div className="bubble my-documents">
                 <i class="material-icons">people</i>
               </div>
             </Link>
-            <Link>
+            <Link to="/calendar">
               <div className="bubble my-calendar">
                 <i class="material-icons">calendar_today</i>
               </div>
@@ -32,6 +27,7 @@ function PersonalSite(){
           </div>
           <h2 className="patient-name">Name example</h2>
         </div>
+        <div id="account-vector"></div>
       </div>
     );
 }
