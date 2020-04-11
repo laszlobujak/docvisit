@@ -12,9 +12,31 @@ import { show_div_element, hide_div_element, change_class_name } from '../../com
 
 function SbsForm() {
   const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState("");
+  const [symptoms, setSymptoms] = useState("");
 
   //set up appointment
-  let onChange = date => setDate(date);
+  let setDay = date => {
+    setDate(date);
+  }
+
+  let setTimeforVisit = (e) => {
+    setTime(e.target.innerHTML);
+  }
+
+  let giveSymptoms = (e) => {
+    setSymptoms(e.target.value)
+  }
+
+  let writeOut = (e) => {
+    e.preventDefault();
+    console.log(symptoms)
+    let text = document.createElement("p");
+    text.classList.add("sympton");
+    text.innerText = symptoms;
+    document.getElementById("symptons-window").appendChild(text)
+  }
+
 
 
   let secondStep = () => {
@@ -48,7 +70,7 @@ function SbsForm() {
         <div className="activ-form-container">
           <div className="first-block-of-infos">
             <h6>Choose a date:</h6>
-            <Calendar className="calendar" onChange={onChange} value={date} />
+            <Calendar className="calendar" onChange={setDay} value={date} />
             <button className="btn btn-dark" onClick={secondStep}>
               Next
             </button>
@@ -56,12 +78,12 @@ function SbsForm() {
           <div className="second-block-of-infos hidden">
             <h6>When:</h6>
             <div id="datetime">
-              <button className="grid-date-item">9:00-10:00</button>
-              <button className="grid-date-item">10:00-11:00</button>
-              <button className="grid-date-item">11:00-12:00</button>
-              <button className="grid-date-item">13:00-14:00</button>
-              <button className="grid-date-item">14:00-15:00</button>
-              <button className="grid-date-item">15:00-16:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>9:00-10:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>10:00-11:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>11:00-12:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>13:00-14:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>14:00-15:00</button>
+              <button className="grid-date-item" onClick={setTimeforVisit}>15:00-16:00</button>
             </div>
             <button className="btn btn-dark" onClick={thirdStep}>
               Next
@@ -70,12 +92,14 @@ function SbsForm() {
           <div className="third-block-of-infos hidden">
               <form>
               <h6>Your symptoms:</h6>
-                <div class="form-group">
-                <label for="symptoms">Symptoms</label>
-                <input type="text" class="form-control" id="symptoms" aria-describedby="symptomsHelp"></input>
-                <small id="symptomsHelp" class="form-text text-muted">It isn't required, just optional</small>
+              <div className="form-group">
+                <label htmlFor="symptoms">Symptoms</label>
+                <input type="text" className="form-control" id="symptoms" aria-describedby="symptomsHelp" onChange={giveSymptoms}></input>
+                <small id="symptomsHelp" className="form-text text-muted">It isn't required, just optional</small>
+                <button id="write-out" onClick={writeOut}>+ Add</button>
                 </div>
               </form>
+            <div id="symptons-window"></div>
             <Link to="/account"><button className="btn btn-dark" >
               Submit
             </button></Link>
