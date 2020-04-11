@@ -6,6 +6,7 @@ $fixed-margin-common: 5rem;
     background-size: contain;
     width: 50%;
     height: 60rem;
+    height: 100vh;
     background-repeat: no-repeat;
     margin: auto;
     padding: 2rem;
@@ -14,6 +15,8 @@ $fixed-margin-common: 5rem;
 .align-text{
     display: flex;
     justify-content: center;
+    font-size: 3rem;
+    font-size: 3.5vw;
     margin-top: $fixed-margin-common;
 }
 
@@ -26,9 +29,55 @@ $fixed-margin-common: 5rem;
 .form-container{
     display: flex;
     justify-content: center;
-    margin-top: $fixed-margin-common;
+    margin: 3rem auto;
+    position: relative;
+
+    form{
+        width: 70%;
+    }
+
+    label{
+        font-size: 1rem;
+        font-size: 1.5vw;
+    }
+
 
     .form-check{
         margin: 2rem 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #frame{
+            .form-container{
+                margin: 0;
+
+                .form-group{
+                    margin-bottom: 0.7rem;
+                }
+                .form-check{
+                    margin: 1rem;
+                }
+            }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #frame{
+        margin-top:2rem;
+            .form-container{
+                .form-group{
+                    margin-bottom: 0.3rem;
+                }
+                .form-check{
+                    margin: 0.7rem;
+                }
+
+                .btn{
+                    width:4.5rem;
+                    height:2rem;
+                    font-size: 0.8rem;
+                }
+            }
     }
 }
