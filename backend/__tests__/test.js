@@ -85,7 +85,7 @@ describe("Success update on : PATCH /users/me", function () {
 describe("Success logout on : POST /users/logout", function () {
     it("it shoud return status code 200 and logout user", function (done) {
         supertest(app)
-            .post("/users/login")
+            .post("/users/logout")
             .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1 ) 
             .send(testUser)
             .expect(200)
@@ -136,6 +136,96 @@ describe("Success delete on : DELETE /users", function () {
             });
     });
 });
+
+/* Test flow 3:
+    - auth error
+    - create appointment
+    - get appointment
+    - update appointment datas
+    - delete
+*/
+let generatedAuthTokenInFlow3 = "";
+let testAppointment = {
+    description: "Flow3 Appointment",
+    doctor: "Doctor Flow3",
+    patient: 'Flow3pationt',
+    date: '2020.04.12.'
+}
+
+describe("Auth eror on : GET /appointments/:id", function () {
+    it("it should has status code 401 because of auth error", function (done) {
+        supertest(app)
+            .get("/appointments/:id")
+            .expect(401)
+            .end(function (err, res) {
+                if (err) done(err);
+                done();
+            });
+    });
+});
+
+
+describe("Success create on : POST /appointments", function () {
+    it("it shoud return status code 201 and create appointment", function (done) {
+        supertest(app)
+            .post("/appointments")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
+            .send(testAppointment)
+            .expect(201)
+            .end(function (err, res) {
+                generatedAuthTokenInFlow3 = res.body.token
+                if (err) done(err);
+                done();
+            });
+    });
+});
+
+describe("Success create on : GET /appointments", function () {
+    it("it shoud returnreturn the testappointment", function (done) {
+        supertest(app)
+            .get("/appointments")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
+            .expect(testAppointment)
+            .end(function (err, res) {
+                generatedAuthTokenInFlow3 = res.body.token
+                if (err) done(err);
+                done();
+            });
+    });
+});
+
+
+describe("Success modify on : PATCH /appointments/:id", function () {
+    it("it shoud return the 200 and update appointment", function (done) {
+        supertest(app)
+            .patch("/appointments/:id")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
+            .send({ description : "Modified description"})
+            .expect(200)
+            .end(function (err, res) {
+                generatedAuthTokenInFlow3 = res.body.token
+                if (err) done(err);
+                done();
+            });
+    });
+});
+
+describe("Success delete on : DELETE /appointments/:id", function () {
+    it("it shoud return status code 200 and delete appointment", function (done) {
+        supertest(app)
+            .delete("/appointments/:id")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
+            .send(testAppointment)
+            .expect(200)
+            .end(function (err, res) {
+                generatedAuthTokenInFlow3 = res.body.token
+                if (err) done(err);
+                done();
+            });
+    });
+});
+
+
 
 after(async () => {
     await mongoose.connection.dropDatabase();
