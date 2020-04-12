@@ -24,8 +24,8 @@ $main-text-color: #192965;
     }
 
     .promt-window {
-        width: 15rem;
-        height: 15rem;
+        width: 16rem;
+        height: 13rem;
         z-index: 100;
         position: absolute;
         background-image: url("../../materials/pop-up.png");
@@ -39,16 +39,44 @@ $main-text-color: #192965;
 
     .for-call{
         top: 4rem;
-        right: 9rem;
+        right: 6rem;
     }
 
     .for-chat{
         top: 4rem;
-        right: 4rem;
+        right: 2rem;
     }
 
 }
 
 .hidden {
     display: none;
+}
+
+@media screen and (max-width: 990px) {
+    .nav-container {
+        display: flex;
+        box-shadow: -1px -1px 15px -5px rgba(109,143,173,1);
+
+        .navbar-toggler-icon i{
+            font-size: 2rem;
+        }
+
+        .nav-item ,.contact{
+            margin: 0;
+            width: 100%;
+            font-weight: bold;
+            background-color: #1266cd;
+            padding: 0.7rem;
+            border-bottom: solid 0.3px white;
+            color: white;
+            letter-spacing: 0.2rem;
+            
+            a{
+                color: white;
+                letter-spacing: 0.2rem;
+            }
+        }
+
+    }   
 }

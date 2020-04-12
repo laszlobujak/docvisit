@@ -26,7 +26,7 @@ const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg nav-container">
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -34,7 +34,7 @@ const Nav = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"><i class="material-icons">reorder</i></span>
+        <span className="navbar-toggler-icon"><i className="material-icons">reorder</i></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,10 +50,10 @@ const Nav = () => {
           </li>
         </ul>
 
-        <button className="nav-link" href="#" onClick={toggleCallWindow}>
+        <button className="nav-link contact" href="#" onClick={toggleCallWindow}>
           Call<i className="material-icons">phone</i>
         </button>
-        <button className="nav-link" href="#" onClick={toggleChatWindow}>
+        <button className="nav-link contact" href="#" onClick={toggleChatWindow}>
           Chat <i className="material-icons">chat_bubble_outline</i>
         </button>
 

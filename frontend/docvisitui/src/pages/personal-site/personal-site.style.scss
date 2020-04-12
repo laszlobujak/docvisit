@@ -3,6 +3,7 @@
     margin: 10rem auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 100%;
 
 
     #avatar{
@@ -32,12 +33,6 @@
 
     .my-documents{
         top: -25rem;
-        left: -2rem;
-    }
-
-    .visit-doctors-page{
-        top: -25rem;
-        right: -2rem;
     }
 
     .my-calendar{
@@ -48,4 +43,6 @@
     .patient-name{
         margin: 2rem;
     }
+
 }
+ 

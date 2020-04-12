@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Nav from '../../components/nav/nav.component';
 import SearchBar from '../../components/searchbar/searchbar.component';
 import Card from '../../components/card/card.component';
 
@@ -24,7 +23,6 @@ const Doctors = () => {
   return (
     <div>
       <div className="top-container">
-        <Nav />
         <h2>Doctors</h2>
       </div>
       <SearchBar />
