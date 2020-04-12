@@ -33,8 +33,7 @@ describe("User tests", async () => {
         supertest(app)
             .get("/users/me")
             .expect(401)
-            .then( done())
-            .catch(error => console.log(error))
+            .end(done)
     });
 
     it("it should return status code 201 and create user", function (done) {
@@ -42,8 +41,10 @@ describe("User tests", async () => {
             .post("/users")
             .send(testUser)
             .expect(201)
-             .then(response => { generatedAuthTokenInFlow1 = response.body.token, done()})
-            .catch(error => console.log(error))
+            .end( (req, res) => {
+                generatedAuthTokenInFlow1 = res.body.token,
+                done()
+            })
     }).timeout(15000);
 
     it("it shoud return status code 200 and login user", function (done) {
@@ -51,8 +52,7 @@ describe("User tests", async () => {
             .post("/users/login")
             .send(testUser)
             .expect(200)
-            .then(done())
-            .catch(error => console.log(error))
+            .end(done)
     });
 
     it("it shoud return status code 200 and update user", function (done) {
@@ -61,8 +61,7 @@ describe("User tests", async () => {
             .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
             .send({ name: "Modified name" })
             .expect(200)
-            .then(done())
-            .catch(error => console.log(error))
+            .end(done)
     });
 
     it("it shoud return status code 200 and logout user", function (done) {
@@ -71,8 +70,7 @@ describe("User tests", async () => {
             .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1 )
             .send(testUser)
             .expect(200)
-            .then(done())
-            .catch(error => console.log(error))
+            .end(done)
     });
 });
 
@@ -94,9 +92,11 @@ describe("Create and delete user", async () => {
          supertest(app)
             .post("/users")
             .send(testUser2)
-            .expect(201)
-             .then(response => { generatedAuthTokenInFlow2 = response.body.token, done() })
-            .catch(error => console.log(error))
+            .expect(200)
+            .end((req, res) => {
+                generatedAuthTokenInFlow2 = res.body.token,
+                done()
+             })
     }).timeout(15000);
 
     it("it shoud return status code 200 and delete user", function (done) {
@@ -105,9 +105,13 @@ describe("Create and delete user", async () => {
             .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow2)
             .send(testUser2)
             .expect(200)
-            .then(done())
-            .catch(error => console.log(error))
+            .end(done)
     });
 });
+
+after(async () => {
+    await mongoose.connection.dropDatabase();
+    await mongoose.connection.close()
+})
 
 
