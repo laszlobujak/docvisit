@@ -1,17 +1,6 @@
 const supertest = require("supertest");
 const app = require("../src/server");
 
-/* 
-    Create test database
-*/
-const mongoose = require('mongoose');
-
-mongoose.connect("mongodb://127.0.0.1:27017/endpoint_tests", {
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useNewUrlParser: true
-});
-
 
 /* Test flow 1:
     - auth error
@@ -109,70 +98,3 @@ describe("Create and delete user", async () => {
     });
 });
 
-/* Test flow 3:
-    - auth error
-    - create appointment
-    - get appointment
-    - update appointment datas
-    - delete
-*/
-let generatedAuthTokenInFlow3 = "";
-let testAppointment = {
-    description: "Flow3 Appointment",
-    doctor: "Doctor Flow3",
-    patient: 'Flow3pationt',
-    date: '2020.04.12.'
-}
-
-describe("Appointment tests", async () => {
-    it("Expect status code 401 because of auth error", function (done) {
-       supertest(app)
-           .get("/appointments/:id")
-           .expect(401)
-           .end(done)
-   });
-
-
-    it("it shoud return status code 201 and create appointment", function (done) {
-        supertest(app)
-            .post("/appointments")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
-            .send(testAppointment)
-            .expect(201)
-            .end( (req, res) => {
-                generatedAuthTokenInFlow3 = res.body.token,
-                done()
-            })
-    });
-
-    it("it should return the testappointment", function (done) {
-        supertest(app)
-            .get("/appointments")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
-            .expect(testAppointment)
-            .end(done)
-    });
-
-    it("it shoud return the 200 and update appointment", function (done) {
-        supertest(app)
-            .patch("/appointments/:id")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
-            .send({ description : "Modified description"})
-            .expect(200)
-            .end(done)
-    });
-
-    it("it shoud return status code 200 and delete appointment", function (done) {
-        supertest(app)
-            .delete("/appointments/:id")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow3)
-            .send(testAppointment)
-            .expect(200)
-            .end(done)
-    });
-});
-
-after(async () => {
-    await mongoose.connection.dropDatabase();
-    await mongoose.connection.close()
-})
