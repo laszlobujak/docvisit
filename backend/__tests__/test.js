@@ -28,71 +28,51 @@ let testUser = {
     password: 'test1111111'
 }
 
-describe("Auth eror on : GET /users/me", function () {
-    it("it should has status code 401 because of auth error", function (done) {
+describe("User tests", async () => {
+     it("it should has status code 401 because of auth error", function (done) {
         supertest(app)
             .get("/users/me")
             .expect(401)
-            .end(function (err, res) {
-                if (err) done(err);
-                done();
-            });
+            .then( done())
+            .catch(error => console.log(error))
     });
-});
 
-describe("Success create on : POST /users", function () {
-    it("it shoud return status code 201 and create user", function (done) {
-        supertest(app)
+    it("it should return status code 201 and create user", function (done) {
+         supertest(app)
             .post("/users")
             .send(testUser)
             .expect(201)
-            .end(function (err, res) {
-                generatedAuthTokenInFlow1 = res.body.token
-                if (err) done(err);
-                done();
-            });
+             .then(response => { generatedAuthTokenInFlow1 = response.body.token, done() })
+            .catch(error => console.log(error))
     });
-});
 
-describe("Success login on : POST /users/login", function () {
     it("it shoud return status code 200 and login user", function (done) {
-        supertest(app)
+         supertest(app)
             .post("/users/login")
             .send(testUser)
             .expect(200)
-            .end(function (err, res) {
-                if (err) done(err);
-                done();
-            });
+            .then(done())
+            .catch(error => console.log(error))
     });
-});
 
-describe("Success update on : PATCH /users/me", function () {
     it("it shoud return status code 200 and update user", function (done) {
-        supertest(app)
+         supertest(app)
             .patch("/users/me")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1) 
-            .send({ name : "Modified name"})
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+            .send({ name: "Modified name" })
             .expect(200)
-            .end(function (err, res) {
-                if (err) done(err);
-                done();
-            });
+            .then(done())
+            .catch(error => console.log(error))
     });
-});
 
-
-describe("Success logout on : POST /users/logout", function () {
     it("it shoud return status code 200 and logout user", function (done) {
-        supertest(app)
-            .post("/users/login")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1 ) 
+         supertest(app)
+            .post("/users/logout")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
             .send(testUser)
             .expect(200)
-            .end(function (err, res) {
-                if (err) done(err);
-                done();
-            });
+            .then(done())
+            .catch(error => console.log(error))
     });
 });
 
@@ -109,33 +89,27 @@ let testUser2 = {
     password: 'test1111111'
 }
 
-describe("Success create on : POST /users", function () {
+describe("Create and delete user", async () => {
     it("it shoud return status code 201 and create user", function (done) {
-        supertest(app)
+         supertest(app)
             .post("/users")
             .send(testUser2)
             .expect(201)
-            .end(function (err, res) {
-                generatedAuthTokenInFlow2 = res.body.token
-                if (err) done(err);
-                done();
-            });
+             .then(response => { generatedAuthTokenInFlow2 = response.body.token, done() })
+            .catch(error => console.log(error))
+    });
+
+    it("it shoud return status code 200 and delete user", function (done) {
+         supertest(app)
+            .delete("/users/me")
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow2)
+            .send(testUser2)
+            .expect(200)
+            .then(done())
+            .catch(error => console.log(error))
     });
 });
 
-describe("Success delete on : DELETE /users", function () {
-    it("it shoud return status code 200 and delete user", function (done) {
-        supertest(app)
-            .delete("/users/me")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow2) 
-            .send(testUser2)
-            .expect(200)
-            .end(function (err, res) {
-                if (err) done(err);
-                done();
-            });
-    });
-});
 
 after(async () => {
     await mongoose.connection.dropDatabase();
