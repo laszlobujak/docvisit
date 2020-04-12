@@ -42,9 +42,9 @@ describe("User tests", async () => {
             .post("/users")
             .send(testUser)
             .expect(201)
-             .then(response => { generatedAuthTokenInFlow1 = response.body.token, done() })
+             .then(response => { generatedAuthTokenInFlow1 = response.body.token, done()})
             .catch(error => console.log(error))
-    });
+    }).timeout(15000);
 
     it("it shoud return status code 200 and login user", function (done) {
          supertest(app)
@@ -97,7 +97,7 @@ describe("Create and delete user", async () => {
             .expect(201)
              .then(response => { generatedAuthTokenInFlow2 = response.body.token, done() })
             .catch(error => console.log(error))
-    });
+    }).timeout(15000);
 
     it("it shoud return status code 200 and delete user", function (done) {
          supertest(app)
