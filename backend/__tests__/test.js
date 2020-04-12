@@ -1,17 +1,6 @@
 const supertest = require("supertest");
 const app = require("../src/server");
 
-/* 
-    Create test database
-*/
-const mongoose = require('mongoose');
-
-mongoose.connect("mongodb://127.0.0.1:27017/endpoint_tests", {
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useNewUrlParser: true
-});
-
 
 /* Test flow 1:
     - auth error
@@ -108,10 +97,5 @@ describe("Create and delete user", async () => {
             .end(done)
     });
 });
-
-after(async () => {
-    await mongoose.connection.dropDatabase();
-    await mongoose.connection.close()
-})
 
 
