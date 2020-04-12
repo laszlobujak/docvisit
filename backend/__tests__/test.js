@@ -29,7 +29,7 @@ let testUser = {
 }
 
 describe("User tests", async () => {
-     it("it should has status code 401 because of auth error", function (done) {
+     it("Expect status code 401 because of auth error", function (done) {
         supertest(app)
             .get("/users/me")
             .expect(401)
@@ -66,9 +66,9 @@ describe("User tests", async () => {
     });
 
     it("it shoud return status code 200 and logout user", function (done) {
-         supertest(app)
+        supertest(app)
             .post("/users/logout")
-            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+            .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1 )
             .send(testUser)
             .expect(200)
             .then(done())
@@ -111,6 +111,3 @@ describe("Create and delete user", async () => {
 });
 
 
-after(async () => {
-    await mongoose.connection.dropDatabase();
-})
