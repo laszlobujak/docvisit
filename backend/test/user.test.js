@@ -35,7 +35,7 @@ describe('User tests', async () => {
       .expect(201);
     const user = await User.findById(response.body.user._id);
     expect(user).not.to.be.null;
-    expect(user.password).not.to.equal('MyPass777!');
+    expect(user.password).not.to.equal('test1111111');
 
     generatedAuthTokenInFlow1 = response.body.token;
   });
