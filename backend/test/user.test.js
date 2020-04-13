@@ -2,6 +2,7 @@ const supertest = require('supertest');
 const app = require('../src/server');
 const mongoose = require('mongoose');
 const User = require('../src/models/User');
+const { expect } = require('chai');
 
 /* Test flow 1:
     - auth error
@@ -23,40 +24,72 @@ describe('User tests', async () => {
     await User.deleteMany();
   });
 
-  it('Expect status code 401 because of auth error', function (done) {
-    supertest(app).get('/users/me').expect(401).end(done);
+  it('Expect status code 401 because of auth error', async () => {
+    await supertest(app).get('/users/me').expect(401);
   });
 
-  it('it should return status code 201 and create user', function (done) {
-    supertest(app)
+  it('it should return status code 201 and create user', async () => {
+    const response = await supertest(app)
       .post('/users')
       .send(testUser)
-      .expect(201)
-      .end((req, res) => {
-        (generatedAuthTokenInFlow1 = res.body.token), done();
-      });
-  }).timeout(15000);
+      .expect(201);
+    const user = await User.findById(response.body.user._id);
+    expect(user).not.to.be.null;
+    expect(user.password).not.to.equal('MyPass777!');
 
-  it('it shoud return status code 200 and login user', function (done) {
-    supertest(app).post('/users/login').send(testUser).expect(200).end(done);
+    generatedAuthTokenInFlow1 = response.body.token;
   });
 
-  it('it shoud return status code 200 and update user', function (done) {
-    supertest(app)
+  it('it should return status code 200 and login user', async () => {
+    await supertest(app)
+      .post('/users/login')
+      .send({ email: testUser.email, password: testUser.password })
+      .expect(200);
+  });
+
+  it('it should return status code 400 and not login user', async () => {
+    await supertest(app)
+      .post('/users/login')
+      .send({ email: testUser.email, password: 'anotherpassword' })
+      .expect(400);
+  });
+
+  it('it should return status code 200 and update user', async () => {
+    await supertest(app)
       .patch('/users/me')
       .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
       .send({ name: 'Modified name' })
-      .expect(200)
-      .end(done);
+      .expect(200);
+    const user = await User.findByCredentials(
+      testUser.email,
+      testUser.password
+    );
+    expect(user.name).to.equal('Modified name');
   });
 
-  it('it shoud return status code 200 and logout user', function (done) {
-    supertest(app)
+  it('it should return status code 400 and not update user because of invalid fields', async () => {
+    await supertest(app)
+      .patch('/users/me')
+      .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+      .send({ favorit_food: 'Pizza' })
+      .expect(400);
+  });
+
+  it('it should return status code 200 and logout user', async () => {
+    const userBefore = await User.findByCredentials(
+      testUser.email,
+      testUser.password
+    );
+    await supertest(app)
       .post('/users/logout')
       .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
-      .send(testUser)
-      .expect(200)
-      .end(done);
+      .send()
+      .expect(200);
+    const userAfter = await User.findByCredentials(
+      testUser.email,
+      testUser.password
+    );
+    expect(userBefore.tokens.length).not.to.equal(userAfter.tokens.length);
   });
 });
 
@@ -77,22 +110,32 @@ describe('Create and delete user', async () => {
     await User.deleteMany();
   });
   after(() => mongoose.connection.close());
-  it('it shoud return status code 201 and create user', function (done) {
-    supertest(app)
+
+  it('it should return status code 201 and create user', async () => {
+    const response = await supertest(app)
       .post('/users')
       .send(testUser2)
-      .expect(200)
-      .end((req, res) => {
-        (generatedAuthTokenInFlow2 = res.body.token), done();
-      });
-  }).timeout(15000);
+      .expect(201);
+    generatedAuthTokenInFlow2 = response.body.token;
+    const user = await User.findById(response.body.user._id);
+    expect(user).not.to.be.null;
+  });
 
-  it('it shoud return status code 200 and delete user', function (done) {
-    supertest(app)
+  it('it should return status code 200 and delete user', async () => {
+    const userBefore = await User.findByCredentials(
+      testUser2.email,
+      testUser2.password
+    );
+    await supertest(app)
       .delete('/users/me')
       .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow2)
-      .send(testUser2)
-      .expect(200)
-      .end(done);
+      .send()
+      .expect(200);
+    const userAfter = await User.findById(userBefore._id);
+    expect(userAfter).to.be.null;
+  });
+
+  it('it should not delete account for unauthenticated user', async () => {
+    await supertest(app).delete('/users/me').send().expect(401);
   });
 });
