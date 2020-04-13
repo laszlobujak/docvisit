@@ -75,8 +75,8 @@ describe('Appointment tests', async () => {
         date: new Date(),
       })
       .expect(201);
-    const appointment = await Appointment.findById(response.body._id);
-    expect(appointment).not.to.be.null;
+    const newAppointment = await Appointment.findById(response.body._id);
+    expect(newAppointment).not.to.be.null;
   });
 
   it('Should fetch users appointments', async () => {
