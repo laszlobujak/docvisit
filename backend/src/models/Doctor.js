@@ -4,18 +4,18 @@ const doctorSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
-userSchema.virtual('appointments', {
+doctorSchema.virtual('appointments', {
   ref: 'Appointment',
   localField: '_id',
-  foreignField: 'doctor'
+  foreignField: 'doctor',
 });
 
 const Doctor = mongoose.model('Doctor', doctorSchema);
