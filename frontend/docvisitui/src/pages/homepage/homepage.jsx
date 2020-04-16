@@ -74,7 +74,7 @@ function HomePage() {
                 <div className="text">
                   <h2>Choose us...</h2>
                   <p>
-                  ...because our goal is to make your appointment as comfortable as possible for you.
+                  ...because our goal is to make your appointment as comfortable as possible.
                   What could be easier than a few clicks? 
                   You no longer have to wait in a room with other patients anymore 
                   and can book an appointment at any time, even in the middle of the night. 
