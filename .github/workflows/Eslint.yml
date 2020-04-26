@@ -1,0 +1,30 @@
+name: Eslint CI
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm --prefix ./backend ci
+    - run: npm --prefix ./backend run build --if-present
+    - run: npm --prefix ./backend lint
+      env:
+        CI: true
+        JWT_TOKEN_SECRET: ${{secrets.JWT_TOKEN_SECRET}}
+        MONGO_URL: ${{secrets.MONGO_URL_TEST}}
