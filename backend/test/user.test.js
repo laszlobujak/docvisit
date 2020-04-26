@@ -1,8 +1,8 @@
 const supertest = require('supertest');
-const app = require('../src/server');
 const mongoose = require('mongoose');
-const User = require('../src/models/User');
 const { expect } = require('chai');
+const app = require('../src/server');
+const User = require('../src/models/User');
 
 /* Test flow 1:
     - auth error
@@ -13,10 +13,10 @@ const { expect } = require('chai');
 */
 
 let generatedAuthTokenInFlow1 = '';
-let testUser = {
+const testUser = {
   name: 'Flow1 User',
   email: 'test_flow10@gmail.com',
-  password: 'test1111111',
+  password: 'test1111111'
 };
 
 describe('User tests', async () => {
@@ -57,7 +57,7 @@ describe('User tests', async () => {
   it('it should return status code 200 and update user', async () => {
     await supertest(app)
       .patch('/users/me')
-      .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+      .set('Authorization', `Bearer ${generatedAuthTokenInFlow1}`)
       .send({ name: 'Modified name' })
       .expect(200);
     const user = await User.findByCredentials(
@@ -70,7 +70,7 @@ describe('User tests', async () => {
   it('it should return status code 400 and not update user because of invalid fields', async () => {
     await supertest(app)
       .patch('/users/me')
-      .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+      .set('Authorization', `Bearer ${generatedAuthTokenInFlow1}`)
       .send({ favorit_food: 'Pizza' })
       .expect(400);
   });
@@ -82,7 +82,7 @@ describe('User tests', async () => {
     );
     await supertest(app)
       .post('/users/logout')
-      .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow1)
+      .set('Authorization', `Bearer ${generatedAuthTokenInFlow1}`)
       .send()
       .expect(200);
     const userAfter = await User.findByCredentials(
@@ -99,10 +99,10 @@ describe('User tests', async () => {
 */
 
 let generatedAuthTokenInFlow2 = '';
-let testUser2 = {
+const testUser2 = {
   name: 'Flow2 User',
   email: 'test_flow2@gmail.com',
-  password: 'test1111111',
+  password: 'test1111111'
 };
 
 describe('Create and delete user', async () => {
@@ -128,7 +128,7 @@ describe('Create and delete user', async () => {
     );
     await supertest(app)
       .delete('/users/me')
-      .set('Authorization', 'Bearer ' + generatedAuthTokenInFlow2)
+      .set('Authorization', `Bearer ${generatedAuthTokenInFlow2}`)
       .send()
       .expect(200);
     const userAfter = await User.findById(userBefore._id);

@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
 const auth = require('../middleware/auth');
+
 const router = new express.Router();
 
 router.post('/users', async (req, res) => {
@@ -18,7 +19,7 @@ router.post('/users/login', async (req, res) => {
   try {
     const user = await User.findByCredentials(
       req.body.email,
-      req.body.password
+      req.body.password,
     );
 
     const token = await user.generateToken();
@@ -30,7 +31,7 @@ router.post('/users/login', async (req, res) => {
 
 router.post('/users/logout', auth, async (req, res) => {
   try {
-    req.user.tokens = req.user.tokens.filter(token => token.token != req.token);
+    req.user.tokens = req.user.tokens.filter((token) => token.token !== req.token);
     await req.user.save();
     res.send();
   } catch (error) {
@@ -52,19 +53,18 @@ router.get('/users/me', auth, async (req, res) => {
   res.send(req.user);
 });
 
+/* eslint-disable-next-line consistent-return */
 router.patch('/users/me', auth, async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['name', 'email', 'password'];
-  const isValidOperation = updates.every(update =>
-    allowedUpdates.includes(update)
-  );
+  const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
 
   if (!isValidOperation) {
     return res.status(400).send({ error: 'Invalid operation!' });
   }
 
   try {
-    updates.forEach(update => (req.user[update] = req.body[update]));
+    updates.forEach((update) => { (req.user[update] = req.body[update]); });
     await req.user.save();
     res.send(req.user);
   } catch (error) {

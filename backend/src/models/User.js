@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
@@ -22,48 +22,48 @@ const userSchema = new mongoose.Schema(
         if (!validator.isEmail(value)) {
           throw new Error('Invalid email!');
         }
-      }
+      },
     },
     password: {
       type: String,
       required: true,
       trim: true,
-      minlength: 6
+      minlength: 6,
     },
     tokens: [
       {
         token: {
           type: String,
-          required: true
-        }
-      }
-    ]
+          required: true,
+        },
+      },
+    ],
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
 userSchema.virtual('appointments', {
   ref: 'Appointment',
   localField: '_id',
-  foreignField: 'patient'
+  foreignField: 'patient',
 });
 
-userSchema.methods.toJSON = function() {
+userSchema.methods.toJSON = function () {
   const userObject = this.toObject();
   delete userObject.password;
   delete userObject.tokens;
   return userObject;
 };
 
-userSchema.methods.generateToken = async function() {
+userSchema.methods.generateToken = async function () {
   const token = jwt.sign(
     { _id: this._id.toString() },
     process.env.JWT_TOKEN_SECRET,
     {
-      expiresIn: '24h'
-    }
+      expiresIn: '24h',
+    },
   );
   this.tokens = this.tokens.concat({ token });
   await this.save();
@@ -87,7 +87,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 };
 
 // Password hash
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, 12);
   }
@@ -95,7 +95,7 @@ userSchema.pre('save', async function(next) {
 });
 
 // Delete user task when user is removed
-userSchema.pre('remove', async function(next) {
+userSchema.pre('remove', async function (next) {
   await Appointment.deleteMany({ patient: this._id });
   next();
 });
