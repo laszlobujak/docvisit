@@ -57,13 +57,10 @@ function HomePage() {
               <div className="text">
                 <h2>Doctors</h2>
                 <p>
-                  Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum.
+                Are you looking for the right doctor for yourself or your family? 
+                Then you are in the best place. Our doctors are highly experienced
+                and outstanding people in their profession. For them, your health comes first. 
+                Each will do the most professional work with the right care.
                 </p>
                 <Link to="/doctors">
                   <button className="more-infos">Read more...</button>
@@ -75,15 +72,13 @@ function HomePage() {
             <div class="row">
               <div class="col-lg-6 col-sm-12">
                 <div className="text">
-                  <h2>Choose us</h2>
+                  <h2>Choose us...</h2>
                   <p>
-                    Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                  ...because our goal is to make your appointment as comfortable as possible.
+                  What could be easier than a few clicks? 
+                  You no longer have to wait in a room with other patients anymore 
+                  and can book an appointment at any time, even in the middle of the night. 
+                  You can view or change your reservation at any time.
                   </p>
                   <button className="more-infos">Read more...</button>
                 </div>
