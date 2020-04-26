@@ -1,12 +1,12 @@
 require('dotenv').config();
 const supertest = require('supertest');
 const jwt = require('jsonwebtoken');
-const app = require('../src/server');
 const mongoose = require('mongoose');
+const { expect } = require('chai');
+const app = require('../src/server');
 const User = require('../src/models/User');
 const Appointment = require('../src/models/Appointment');
 const Doctor = require('../src/models/Doctor');
-const { expect } = require('chai');
 
 const userId = new mongoose.Types.ObjectId();
 const user = {
@@ -16,9 +16,9 @@ const user = {
   password: 'patient!!',
   tokens: [
     {
-      token: jwt.sign({ _id: userId }, process.env.JWT_TOKEN_SECRET),
-    },
-  ],
+      token: jwt.sign({ _id: userId }, process.env.JWT_TOKEN_SECRET)
+    }
+  ]
 };
 
 const userIdAnother = new mongoose.Types.ObjectId();
@@ -29,9 +29,9 @@ const userAnother = {
   password: 'patient2!!',
   tokens: [
     {
-      token: jwt.sign({ _id: userIdAnother }, process.env.JWT_TOKEN_SECRET),
-    },
-  ],
+      token: jwt.sign({ _id: userIdAnother }, process.env.JWT_TOKEN_SECRET)
+    }
+  ]
 };
 
 const doctorId = new mongoose.Types.ObjectId();
@@ -42,9 +42,9 @@ const doctor = {
   password: 'doctor!!',
   tokens: [
     {
-      token: jwt.sign({ _id: doctorId }, process.env.JWT_TOKEN_SECRET),
-    },
-  ],
+      token: jwt.sign({ _id: doctorId }, process.env.JWT_TOKEN_SECRET)
+    }
+  ]
 };
 
 const appointment = {
@@ -52,7 +52,7 @@ const appointment = {
   description: 'First appointment',
   patient: user._id,
   doctor: doctor._id,
-  date: new Date(),
+  date: new Date()
 };
 
 describe('Appointment tests', async () => {
@@ -72,7 +72,7 @@ describe('Appointment tests', async () => {
       .send({
         description: 'Some description',
         doctor: doctor._id,
-        date: new Date(),
+        date: new Date()
       })
       .expect(201);
     const newAppointment = await Appointment.findById(response.body._id);

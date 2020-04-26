@@ -9,7 +9,7 @@ const doctorSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 doctorSchema.virtual('appointments', {
