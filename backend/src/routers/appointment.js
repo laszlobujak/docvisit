@@ -8,7 +8,7 @@ const router = new express.Router();
 router.post('/appointments', auth, async (req, res) => {
   const appointment = new Appointment({
     ...req.body,
-    patient: req.user.id
+    patient: req.user.id,
   });
   try {
     await appointment.save();
@@ -22,7 +22,7 @@ router.get('/appointments', auth, async (req, res) => {
   try {
     await req.user
       .populate({
-        path: 'appointments'
+        path: 'appointments',
       })
       .execPopulate();
     res.send(req.user.appointments);
@@ -31,12 +31,13 @@ router.get('/appointments', auth, async (req, res) => {
   }
 });
 
+/* eslint-disable-next-line consistent-return */
 router.get('/appointments/:id', auth, async (req, res) => {
   const _id = req.params.id;
   try {
     const appointment = await Appointment.findOne({
       _id,
-      patient: req.user._id
+      patient: req.user._id,
     });
     if (!appointment) {
       return res.status(404).send();
@@ -47,12 +48,11 @@ router.get('/appointments/:id', auth, async (req, res) => {
   }
 });
 
+/* eslint-disable-next-line consistent-return */
 router.patch('/appointments/:id', auth, async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['description', 'date'];
-  const isValidOperation = updates.every(update =>
-    allowedUpdates.includes(update)
-  );
+  const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
 
   if (!isValidOperation) {
     return res.status(400).send({ error: 'Invalid operation!' });
@@ -61,13 +61,13 @@ router.patch('/appointments/:id', auth, async (req, res) => {
   try {
     const appointment = await Appointment.findOne({
       _id: req.params.id,
-      patient: req.user._id
+      patient: req.user._id,
     });
     if (!appointment) {
       return res.status(404).send();
     }
 
-    updates.forEach(update => {
+    updates.forEach((update) => {
       appointment[update] = req.body[update];
     });
     await appointment.save();
@@ -77,11 +77,12 @@ router.patch('/appointments/:id', auth, async (req, res) => {
   }
 });
 
+/* eslint-disable-next-line consistent-return */
 router.delete('/appointments/:id', auth, async (req, res) => {
   try {
     const appointment = await Appointment.findOneAndDelete({
       _id: req.params.id,
-      patient: req.user._id
+      patient: req.user._id,
     });
 
     if (!appointment) {

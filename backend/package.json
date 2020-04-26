@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --timeout 5000 --exit",
     "start": "node src/start.js",
-    "dev": "nodemon src/start.js"
+    "dev": "nodemon src/start.js",
+    "lint": "eslint src/**/*.js --fix"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +18,18 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^7.1.1",
+    "mocha": "^7.1.2",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.5",
     "validator": "^12.2.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   }
