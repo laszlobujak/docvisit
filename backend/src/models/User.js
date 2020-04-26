@@ -5,6 +5,30 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Appointment = require('./Appointment');
 
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      User:
+ *        type: object
+ *        required:
+ *          - name
+ *          - password
+ *        properties:
+ *          name:
+ *            type: string
+ *          email:
+ *            type: string
+ *            format: email
+ *            description: Email for the user, needs to be unique.
+ *          password:
+ *            type: string
+ *            description: Minimum length 6
+ *        example:
+ *           name: Test
+ *           email: test@email.com
+ *           password: 1234567
+ */
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -101,5 +125,7 @@ userSchema.pre('remove', async function(next) {
 });
 
 const User = mongoose.model('User', userSchema);
+
+
 
 module.exports = User;

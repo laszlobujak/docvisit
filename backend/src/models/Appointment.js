@@ -1,5 +1,33 @@
 const mongoose = require('mongoose');
 
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      Appointment:
+ *        type: object
+ *        required:
+ *          - description
+ *          - doctor
+ *          - patient
+ *          - date
+ *        properties:
+ *          description:
+ *            type: string
+ *          doctor:
+ *            type: Doctor - object
+ *          patient:
+ *            type: User - object
+ *          date:
+ *            type: date
+ * 
+ *        example:
+ *           description: Fever
+ *           doctor: Dr. Test
+ *           patient: Sick Person
+ *           date: 2020-01-01
+ */
+
 const appointmentSchema = new mongoose.Schema(
   {
     description: {
