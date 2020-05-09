@@ -2,7 +2,7 @@
     width: 35%;
     margin: 10rem auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     height: 100%;
 
 
@@ -38,6 +38,11 @@
     .my-calendar{
         top: -24rem;
         right: 2.7rem;
+    }
+
+    .logout{
+        top: -22rem;
+        right: 3.5rem;
     }
 
     .patient-name{
