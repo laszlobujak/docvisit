@@ -5,6 +5,15 @@ const appointmentRouter = require('./routers/appointment');
 
 const app = express();
 
+//adding cors
+let cors = require('cors');
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+        credentials: true,
+    })
+);
+
 app.use(express.json());
 app.use(userRouter);
 app.use(appointmentRouter);
