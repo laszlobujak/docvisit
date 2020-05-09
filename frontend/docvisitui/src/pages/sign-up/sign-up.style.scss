@@ -1,15 +1,12 @@
-$fixed-margin-common: 5rem;
+$fixed-margin-common: 3rem;
 
 
 #frame{
-    background-image: url("../../materials/frame.png");
-    background-size: contain;
     width: 50%;
     height: 60rem;
     height: 100vh;
-    background-repeat: no-repeat;
-    margin: auto;
-    padding: 2rem;
+    margin: 0rem auto;
+    padding: 0rem;
 }
 
 .align-text{
@@ -34,6 +31,12 @@ $fixed-margin-common: 5rem;
 
     form{
         width: 70%;
+
+        input{
+            border: none;
+            border-bottom: solid 1px black;
+            border-radius: 0;
+        }
     }
 
     label{
@@ -44,6 +47,11 @@ $fixed-margin-common: 5rem;
 
     .form-check{
         margin: 2rem 0;
+    }
+
+    .sign-up-button.btn{
+        margin: 2rem;
+        width: 9rem !important;
     }
 }
 
