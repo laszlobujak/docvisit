@@ -12,6 +12,7 @@ function SignUp(){
   let [name, setName] = useState("")
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
+  let [user_id, setId] = useState("")
 
   function postSignup(event) {
     event.preventDefault()
@@ -20,13 +21,14 @@ function SignUp(){
         if (result.status === 201) {
               sessionStorage.setItem("token", result.data.token);
               sessionStorage.setItem("user_id", result.data.user._id)
+              setId(result.data.user._id)
           }
       })
       .catch((error) => console.log(error))
 
   }
 
-  if (sessionStorage.getItem("user_id")) {
+  if (user_id !== "") {
             return <Redirect to={{
                 pathname: '/account'
             }}

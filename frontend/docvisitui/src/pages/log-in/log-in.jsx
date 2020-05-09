@@ -8,6 +8,7 @@ import Nav from '../../components/nav/nav.component';
 function LogIn(){
   let [email, setEmail] = useState("")
   let [password, setPassword] = useState("")
+  let [user_id, setId] = useState("")
 
   function postLogin(event) {
     event.preventDefault()
@@ -17,13 +18,14 @@ function LogIn(){
         if (result.status === 200) {
           sessionStorage.setItem("token", result.data.token);
           sessionStorage.setItem("user_id", result.data.user._id)
+          setId(result.data.user._id)
         }
       },
       )
       .catch((error) => console.log(error))
 
   }
-  if (sessionStorage.getItem("user_id")) {
+  if (user_id !== "") {
     return <Redirect to={{
       pathname: '/account'
     }}
