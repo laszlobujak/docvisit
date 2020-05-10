@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Calendar from 'react-calendar';
 
 //components
 import Nav from '../../components/nav/nav.component'
@@ -13,8 +14,12 @@ class PersonalSite extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      user : ""
+      user : "",
+      appointments : []
     }
+
+    //refs
+    this.calendar = React.createRef();
   }
 
   componentDidMount(){
@@ -24,6 +29,28 @@ class PersonalSite extends Component{
       }
     })
       .then(res => this.setState({ user : res.data}))
+      .catch(error => {
+        console.log(error)
+      })
+
+    axios.get('http://localhost:8000/appointments', {
+      headers: {
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+      }
+    })
+      .then(res => this.setState(prevState => ({
+        appointments: [...prevState.appointments, res.data]
+      }), () => {
+          let appoints = this.state.appointments[0].map( item => item.date)
+          let dates = document.getElementsByClassName("react-calendar__month-view__days")[0].childNodes
+          dates.forEach(date => 
+            appoints.forEach( item => {
+              if (date.childNodes[0].textContent === item.substring(8,10)){
+                date.style.backgroundColor = "#4c96f0";
+              }
+            } )
+            )
+      }))
       .catch(error => {
         console.log(error)
       })
@@ -37,7 +64,8 @@ class PersonalSite extends Component{
       }
     })
       .then(
-        sessionStorage.removeItem('token')
+        (sessionStorage.removeItem('token'),
+        sessionStorage.removeItem('user_id'))
       )
   }
 
@@ -47,27 +75,33 @@ class PersonalSite extends Component{
       <div>
         <Nav />
         <div className="account-layout">
-          <div>
+          <div className="personal-activities">
             <div id="avatar"></div>
             <Link to="/doctors">
               <div className="bubble my-documents">
                 <i className="material-icons">people</i>
               </div>
             </Link>
-            <Link to="/calendar">
-              <div className="bubble my-calendar">
-                <i className="material-icons">calendar_today</i>
-              </div>
-            </Link>
-            <Link to="/calendar">
+            <Link to="/">
               <div className="bubble logout" onClick={this.logout}>
                 <i className="material-icons">exit_to_app</i>
               </div>
             </Link>
           </div>
-          <h2 className="patient-name">{this.state.user && this.state.user.name}</h2>
+          <div className="dates-and-infos">
+            <div className="letterhead">
+              <div id="medic-plus"></div>
+            </div>
+            <h3>{this.state.user.name}</h3>
+            <p>{this.state.user.email}</p>
+            <div id="appointments-calendar">
+              <Calendar 
+              className="calendar"
+              />
+            </div>
+          </div>
         </div>
-        <div id="account-vector"></div>
+
       </div>
     )
   }

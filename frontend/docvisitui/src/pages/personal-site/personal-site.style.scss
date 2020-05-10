@@ -1,53 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
 .account-layout{
-    width: 35%;
-    margin: 10rem auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr ;
     height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 1fr;
 
+    .personal-activities{
+        width: 35%;
+        margin-left: 15%;
+        position: relative;
+        top: 30%;
 
-    #avatar{
-        background-image: url("../../materials/account-avatar.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 20rem;
-        height: 20rem;
+        #avatar{
+            background-image: url("../../materials/account-avatar.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 20rem;
+            height: 20rem;
+        }
+
+        .bubble{
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            position: relative;
+            background-color: #1266CD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: stretch_it 4s ease-in;
+
+            i{
+                color: white;
+                font-size: 3rem;
+            }
+        }
+
+        .my-documents{
+            top: -25rem;
+        }
+
+        .my-calendar{
+            top: -24rem;
+            right: 2.7rem;
+        }
+
+        .logout{
+            top: -22rem;
+            right: 3.5rem;
+        }
+
+        .patient-name{
+            margin: 2rem;
+        }
+
     }
 
-    .bubble{
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        position: relative;
-        background-color: #1266CD;
+    .dates-and-infos{
+        margin-right: 6rem;
+        margin-top: 6rem;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: stretch_it 4s ease-in;
+        flex-direction: column;
+        border: solid 1px rgb(89, 89, 89);
+        border-radius: 2rem;
 
-        i{
-            color: white;
-            font-size: 3rem;
+        .letterhead{
+            background-color: rgb(76, 150, 240);
+            width: 90%;
+            height: 3rem;
+            margin: 0.3rem auto;
+            display: flex;
+
+            #medic-plus{
+                background-image: url("../../materials/plus.png");
+                width: 2.5rem;
+                height: 2.4rem;
+                margin: auto 1rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
+        h3{
+            font-family: 'Noto Serif', serif;
+            letter-spacing: 0.1rem;
+            font-size: 1.5rem;
+            border-bottom: solid 1px grey;
+            width: 8rem;
+        }
+        p,h3{
+            margin-top: 2%;
+            margin-left: 2rem;
+        }
+
+        #appointments-calendar{
+            padding: 2rem;
         }
     }
-
-    .my-documents{
-        top: -25rem;
-    }
-
-    .my-calendar{
-        top: -24rem;
-        right: 2.7rem;
-    }
-
-    .logout{
-        top: -22rem;
-        right: 3.5rem;
-    }
-
-    .patient-name{
-        margin: 2rem;
-    }
-
-}
  
+}
