@@ -14,14 +14,6 @@ const Footer = () => (
       </Link>
     </div>
     <div id="nurse-and-doctor"></div>
-    <div className="social">
-      <Link to="/">
-        <div id="instagram" className="icon"></div>
-      </Link>
-      <Link to="/">
-        <div id="facebook" className="icon"></div>
-      </Link>
-    </div>
   </div>
 );
 

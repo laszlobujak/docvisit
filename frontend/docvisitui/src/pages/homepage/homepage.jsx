@@ -80,7 +80,6 @@ function HomePage() {
                   and can book an appointment at any time, even in the middle of the night. 
                   You can view or change your reservation at any time.
                   </p>
-                  <button className="more-infos">Read more...</button>
                 </div>
               </div>
               <div className="col-lg-6 col-sm-12">
