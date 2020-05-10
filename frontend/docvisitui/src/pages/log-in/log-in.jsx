@@ -65,16 +65,6 @@ function LogIn(){
                 placeholder="Password"
               ></input>
             </div>
-              <div className="form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              ></input>
-                <label className="form-check-label" htmlFor="exampleCheck1">
-                Privacy policy
-              </label>
-            </div>
               <button type="submit" className="btn btn-outline-primary">
               Submit
             </button>

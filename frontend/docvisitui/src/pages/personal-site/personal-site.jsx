@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import Calendar from 'react-calendar';
 
@@ -14,7 +14,7 @@ class PersonalSite extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      user : "",
+      user : "empty",
       appointments : []
     }
 
@@ -45,7 +45,7 @@ class PersonalSite extends Component{
           let dates = document.getElementsByClassName("react-calendar__month-view__days")[0].childNodes
           dates.forEach(date => 
             appoints.forEach( item => {
-              if (date.childNodes[0].textContent === item.substring(8,10)){
+              if (date.childNodes[0].textContent === item.substring(8, 10)){
                 date.style.backgroundColor = "#4c96f0";
               }
             } )
@@ -65,12 +65,16 @@ class PersonalSite extends Component{
     })
       .then(
         (sessionStorage.removeItem('token'),
-        sessionStorage.removeItem('user_id'))
+        sessionStorage.removeItem('user_id'),
+        this.setState({ user : ""}))
       )
   }
 
-
+  
   render() {
+    if(this.state.user === ""){
+      return <Redirect to={"/"}/>
+    }
     return (
       <div>
         <Nav />
@@ -95,6 +99,7 @@ class PersonalSite extends Component{
             <h3>{this.state.user.name}</h3>
             <p>{this.state.user.email}</p>
             <div id="appointments-calendar">
+            <h6>Appointments</h6>
               <Calendar 
               className="calendar"
               />

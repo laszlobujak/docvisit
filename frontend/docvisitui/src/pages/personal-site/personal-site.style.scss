@@ -5,6 +5,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 50% 1fr;
+    font-family: 'Noto Serif', serif;
 
     .personal-activities{
         width: 35%;
@@ -62,7 +63,7 @@
         margin-top: 6rem;
         display: flex;
         flex-direction: column;
-        border: solid 1px rgb(89, 89, 89);
+        border: solid 1px rgb(148, 148, 148);
         border-radius: 2rem;
 
         .letterhead{
@@ -83,7 +84,6 @@
         }
 
         h3{
-            font-family: 'Noto Serif', serif;
             letter-spacing: 0.1rem;
             font-size: 1.5rem;
             border-bottom: solid 1px grey;

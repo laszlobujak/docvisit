@@ -19,14 +19,14 @@ $main-text-color: #192965;
     button {
         color: $main-text-color;
         border: none;
-        margin: 1rem;
         padding: 0;
     }
 
     .promt-window {
         width: 16rem;
-        height: 13rem;
+        height: 13.3rem;
         z-index: 100;
+        color: black;
         position: absolute;
         background-image: url("../../materials/pop-up.png");
         background-size: cover;
@@ -57,6 +57,7 @@ $main-text-color: #192965;
     .nav-container {
         display: flex;
         box-shadow: -1px -1px 15px -5px rgba(109,143,173,1);
+    
 
         .navbar-toggler-icon i{
             font-size: 2rem;
@@ -77,6 +78,5 @@ $main-text-color: #192965;
                 letter-spacing: 0.2rem;
             }
         }
-
-    }   
+    }  
 }
