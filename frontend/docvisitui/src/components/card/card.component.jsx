@@ -12,9 +12,7 @@ const Card = ({ docName }) => (
       <div className="avatar"></div>
       <h4>{docName}</h4>
     </div>
-    <button className="book-button">
-      <Link to="/calendar">Book an appointment</Link>
-    </button>
+    <Link to="/calendar"><button className="book-button" onClick={() => localStorage.setItem("name", docName)}>Book an appointment</button></Link>
   </div>
 );
 

@@ -48,12 +48,12 @@ function HomePage() {
         <p> ~ Thomas Fuller</p>
       </div>
       <div className="doctors-and-infos">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-sm-12">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 col-sm-12">
               <div id="stethoscope" className="side-pictures"></div>
             </div>
-            <div class="col-lg-6 col-sm-12">
+            <div className="col-lg-6 col-sm-12">
               <div className="text">
                 <h2>Doctors</h2>
                 <p>
@@ -68,9 +68,9 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 col-sm-12">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 col-sm-12">
                 <div className="text">
                   <h2>Choose us...</h2>
                   <p>
@@ -83,7 +83,7 @@ function HomePage() {
                   <button className="more-infos">Read more...</button>
                 </div>
               </div>
-              <div class="col-lg-6 col-sm-12">
+              <div className="col-lg-6 col-sm-12">
                 <div id="medical" className="side-pictures"></div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import axios from 'axios';
 
 //routing
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 //style
 import './sbs-form.style.scss';
@@ -141,9 +141,9 @@ class SbsForm extends Component{
                 </div>
               </form>
               <div id="symptons-window" ref={this.symptomsWindow}></div>
-              <button className="btn btn-dark" onClick={this.saveAppointment}>
+              <Link to="/account"><button className="btn btn-dark" onClick={this.saveAppointment}>
                 Submit
-            </button>
+            </button></Link>
             </div>
           </div>
         </div>
