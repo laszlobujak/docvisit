@@ -63,7 +63,7 @@ $common-colors: (
             width: 15rem;
             height: 3rem;
             border-radius: 20px;
-            margin: 0 auto;
+            margin: 1rem auto;
 
             p {
                 color: map-get($common-colors, "light");
@@ -317,7 +317,7 @@ $common-colors: (
              #informal-text {
                 text-align: left;
                 margin-left: 2rem;
-                font-size: 5px;
+                font-size: 1rem;
             }
 
             #read-more {

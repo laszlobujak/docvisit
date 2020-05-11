@@ -6,11 +6,13 @@ const auth = require('../middleware/auth');
 const router = new express.Router();
 
 router.post('/appointments', auth, async (req, res) => {
-  const appointment = new Appointment({
-    ...req.body,
-    patient: req.user.id,
-  });
   try {
+    await req.user
+      .populate({
+        path: 'appointments'
+      })
+      .execPopulate();
+    const appointment = new Appointment(req.body);
     await appointment.save();
     res.status(201).send(appointment);
   } catch (error) {

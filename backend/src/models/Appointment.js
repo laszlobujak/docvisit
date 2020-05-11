@@ -8,9 +8,8 @@ const appointmentSchema = new mongoose.Schema(
       trim: true,
     },
     doctor: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Doctor',
+      type: String,
+      required: true
     },
     patient: {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,7 +17,7 @@ const appointmentSchema = new mongoose.Schema(
       ref: 'User',
     },
     date: {
-      type: Date,
+      type: String,
       required: true,
     },
   },

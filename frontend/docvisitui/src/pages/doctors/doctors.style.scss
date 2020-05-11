@@ -9,6 +9,20 @@
     h2 {
         color: rgb(255, 255, 255);
     }
+
+    .doctors-navigation-bar{
+        display: flex;
+        flex-direction: row;
+
+        .go-to-mainpage{
+            .material-icons{
+                color: white;
+                margin: 1rem;
+                font-size: 1.7rem;
+            }
+        }
+    }
+
 }
 
 .doctor-cards {

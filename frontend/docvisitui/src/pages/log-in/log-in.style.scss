@@ -1,10 +1,16 @@
 #frame{
-    background-image: url("../../materials/frame.png");
-    background-size: contain;
     width: 50%;
     height: 60rem;
     height: 90vh;
-    background-repeat: no-repeat;
     margin: auto;
     padding: 2rem;
+
+    .login-button{
+        margin: 2rem;
+        width: 9rem !important;
+        height: 3rem;
+        border-radius: 2rem;
+        color: white;
+        background-color: rgb(44, 64, 125);
+    }
 }

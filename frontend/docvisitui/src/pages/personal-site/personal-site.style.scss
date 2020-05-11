@@ -1,48 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300&display=swap');
+
 .account-layout{
-    width: 35%;
-    margin: 10rem auto;
+    height: 100vh;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%;
+    grid-template-columns: 50% 1fr;
+    font-family: 'Kreon', serif;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
 
+    .personal-activities{
+        width: 35%;
+        margin-left: 15%;
+        position: relative;
+        top: 30%;
 
-    #avatar{
-        background-image: url("../../materials/account-avatar.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 20rem;
-        height: 20rem;
+        #avatar{
+            background-image: url("../../materials/social-2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 20rem;
+            height: 20rem;
+        }
+
+        .bubble{
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            position: relative;
+            background-color: #1266CD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: stretch_it 4s ease-in;
+
+            i{
+                color: white;
+                font-size: 3rem;
+            }
+        }
+
+        .my-documents{
+            top: -25rem;
+        }
+
+        .my-calendar{
+            top: -24rem;
+            right: 2.7rem;
+        }
+
+        .logout{
+            top: -22rem;
+            right: 3.5rem;
+        }
+
+        .patient-name{
+            margin: 2rem;
+        }
+
     }
 
-    .bubble{
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        position: relative;
-        background-color: #1266CD;
+    .dates-and-infos{
+        margin-right: 6rem;
+        height: 100%;
+        margin-top: 2rem;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        animation: stretch_it 4s ease-in;
+        flex-direction: column;
+        border-radius: 2rem;
+        padding: 1rem;
+        box-shadow: 0px 0px 18px 3px rgba(161,161,161,1);
 
-        i{
+        #list{
+            width: 13rem;
+            height: 2.3rem;
+            background-color: rgb(41, 108, 201);
+            border-radius: 1rem;
+            margin: auto;
+            font-weight: bolder;
+            letter-spacing: 0.1rem;
             color: white;
-            font-size: 3rem;
+        }
+
+        .letterhead{
+            background-color: rgb(76, 150, 240);
+            width: 90%;
+            height: 3rem;
+            margin: 0.3rem auto;
+            display: flex;
+
+            #medic-plus{
+                background-image: url("../../materials/plus.png");
+                width: 2.5rem;
+                height: 2.4rem;
+                margin: auto 1rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
+        h6{
+            font-size: 1.3rem;
+            font-weight: bolder;
+        }
+
+        h3{
+            letter-spacing: 0.2rem;
+            font-size: 1.5rem;
+            border-bottom: solid 1px grey;
+            width: 8rem;
+            color: rgb(31, 31, 114);
+            font-weight: bold;
+        }
+        p,h3{
+            margin-top: 2%;
+            margin-left: 2rem;
+        }
+
+        #listed{
+            padding: 1rem;
+        }
+        .appointment{
+            box-shadow: 0px 0px 12px 3px rgba(161,161,161,1);
+            border-radius: 1rem;
+            padding: 0.3rem;
+            margin: 0.6rem;
         }
     }
-
-    .my-documents{
-        top: -25rem;
-    }
-
-    .my-calendar{
-        top: -24rem;
-        right: 2.7rem;
-    }
-
-    .patient-name{
-        margin: 2rem;
-    }
-
-}
  
+}

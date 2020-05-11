@@ -16,12 +16,20 @@
         border-top-left-radius: 20px;
         background-color: #BBE1FA;
         position: absolute;
+        z-index: -1;
+        text-align: end;
 
+
+    h5{
+        z-index: 100;
+        font-size: 1rem;
+        color: rgb(30, 30, 190);
+        margin: 1rem;
+    }
     }
 
-
     .avatar{
-        background-image: url("../../materials/avatar.jpg");
+        background-image: url("../../materials/avatar.png");
         background-repeat: no-repeat;
         background-size: contain;
         width: 9rem;

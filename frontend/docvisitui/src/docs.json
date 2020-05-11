@@ -1,0 +1,32 @@
+{
+    "doctors" : [
+        {
+            "name" : "Dr. Derek Smith",
+            "occupation" : "Dentist"
+        },
+        {
+            "name": "Dr. Farrah Fawler",
+            "occupation": "Heart surgeon"
+        },
+        {
+            "name": "Dr. Adam Smith",
+            "occupation": "Oral Surgeon"
+        },
+        {
+            "name": "Amy Hembrow",
+            "occupation": "Dietetics"
+        },
+        {
+            "name": "Dr. Jenny Fairy",
+            "occupation": "Psychiatry"
+        },
+        {
+            "name": "Dr. Bean",
+            "occupation": "Urology"
+        },
+        {
+            "name": "Dr. Adam Korven",
+            "occupation": "Oncology"
+        }
+    ]
+}
