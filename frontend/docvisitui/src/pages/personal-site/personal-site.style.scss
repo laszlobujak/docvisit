@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kreon:wght@300&display=swap');
 
 .account-layout{
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: grid;
     grid-template-columns: 50% 1fr;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Kreon', serif;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
 
     .personal-activities{
         width: 35%;
@@ -14,7 +16,7 @@
         top: 30%;
 
         #avatar{
-            background-image: url("../../materials/account-avatar.png");
+            background-image: url("../../materials/social-2.png");
             background-size: contain;
             background-repeat: no-repeat;
             width: 20rem;
@@ -60,11 +62,24 @@
 
     .dates-and-infos{
         margin-right: 6rem;
-        margin-top: 6rem;
+        height: 100%;
+        margin-top: 2rem;
         display: flex;
         flex-direction: column;
-        border: solid 1px rgb(148, 148, 148);
         border-radius: 2rem;
+        padding: 1rem;
+        box-shadow: 0px 0px 18px 3px rgba(161,161,161,1);
+
+        #list{
+            width: 13rem;
+            height: 2.3rem;
+            background-color: rgb(41, 108, 201);
+            border-radius: 1rem;
+            margin: auto;
+            font-weight: bolder;
+            letter-spacing: 0.1rem;
+            color: white;
+        }
 
         .letterhead{
             background-color: rgb(76, 150, 240);
@@ -83,19 +98,32 @@
             }
         }
 
+        h6{
+            font-size: 1.3rem;
+            font-weight: bolder;
+        }
+
         h3{
-            letter-spacing: 0.1rem;
+            letter-spacing: 0.2rem;
             font-size: 1.5rem;
             border-bottom: solid 1px grey;
             width: 8rem;
+            color: rgb(31, 31, 114);
+            font-weight: bold;
         }
         p,h3{
             margin-top: 2%;
             margin-left: 2rem;
         }
 
-        #appointments-calendar{
-            padding: 2rem;
+        #listed{
+            padding: 1rem;
+        }
+        .appointment{
+            box-shadow: 0px 0px 12px 3px rgba(161,161,161,1);
+            border-radius: 1rem;
+            padding: 0.3rem;
+            margin: 0.6rem;
         }
     }
  

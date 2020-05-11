@@ -65,10 +65,11 @@ function LogIn(){
                 placeholder="Password"
               ></input>
             </div>
-              <button type="submit" className="btn btn-outline-primary">
+              <button type="submit" className="login-button">
               Submit
             </button>
           </form>
+            <div className="bubbles-on-forms"></div>
         </div>
         </div>
       </div>

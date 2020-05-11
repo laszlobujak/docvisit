@@ -84,10 +84,11 @@ function SignUp(){
                 placeholder="Password"
               ></input>
             </div>
-              <button type="submit" className="btn btn-dark sign-up-button">
+              <button type="submit" className="sign-up-button">
               Submit
             </button>
           </form>
+            <div className="bubbles-on-forms"></div>
           </div>
         </div>
       </div>

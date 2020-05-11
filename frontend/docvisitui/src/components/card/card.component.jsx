@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 //style
 import './card.style.scss';
 
-const Card = ({ docName }) => (
+const Card = ({ docName, occ }) => (
   <div className="card-container">
     <div>
-      <div className="colored-header"></div>
+      <div className="colored-header"><h5>{occ}</h5></div>
       <div className="cross"></div>
       <div className="avatar"></div>
       <h4>{docName}</h4>

@@ -15,11 +15,14 @@ class PersonalSite extends Component{
     super(props);
     this.state = {
       user : "empty",
-      appointments : []
+      appointments : [],
+      listOrNot : false
     }
 
     //refs
     this.calendar = React.createRef();
+    this.myCalendar = React.createRef();
+    this.appButton = React.createRef();
   }
 
   componentDidMount(){
@@ -54,6 +57,10 @@ class PersonalSite extends Component{
       .catch(error => {
         console.log(error)
       })
+  }
+
+  listAppointments = () => {
+    this.setState({listOrNot: !this.state.listOrNot})
   }
 
   logout = () => {
@@ -96,13 +103,22 @@ class PersonalSite extends Component{
             <div className="letterhead">
               <div id="medic-plus"></div>
             </div>
+            <p>Personal informations</p>
             <h3>{this.state.user.name}</h3>
             <p>{this.state.user.email}</p>
-            <div id="appointments-calendar">
-            <h6>Appointments</h6>
-              <Calendar 
-              className="calendar"
+            <div id="appointments-calendar" ref={this.myCalendar} >
+              <h6>Overview</h6>
+              <Calendar
+                className="calendar"
               />
+            </div>
+            <button id="list" onClick={this.listAppointments} ref={this.appButton}>List my appointments</button>
+            <div className="listed">
+            {
+              this.state.listOrNot &&
+                this.state.appointments[0] &&
+                this.state.appointments[0].map(item => <div className="appointment"><p>{item.doctor}</p><p>Symptoms : {item.description}</p><p>{item.date}</p></div>)
+              }
             </div>
           </div>
         </div>

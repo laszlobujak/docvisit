@@ -31,15 +31,11 @@ class SbsForm extends Component{
   }
 
   dateChooser = (e) => {
-    this.setState({ date: e}, () => {
-      console.log(this.state.date)
-    })
+    this.setState({ date: e})
   }
 
   setTimeforVisit = (e) => {
-    this.setState({ time: e.target.textContent }, () => {
-      console.log(this.state.time)
-    })
+    this.setState({ time: e.target.textContent })
   }
 
   giveSymptoms = (e) => {

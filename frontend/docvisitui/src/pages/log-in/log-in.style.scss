@@ -4,4 +4,13 @@
     height: 90vh;
     margin: auto;
     padding: 2rem;
+
+    .login-button{
+        margin: 2rem;
+        width: 9rem !important;
+        height: 3rem;
+        border-radius: 2rem;
+        color: white;
+        background-color: rgb(44, 64, 125);
+    }
 }

@@ -42,6 +42,7 @@ $fixed-margin-common: 3rem;
     label{
         font-size: 1rem;
         font-size: 1.5vw;
+        color: rgb(44, 64, 125);
     }
 
 
@@ -49,11 +50,25 @@ $fixed-margin-common: 3rem;
         margin: 2rem 0;
     }
 
-    .sign-up-button.btn{
+    .sign-up-button{
         margin: 2rem;
         width: 9rem !important;
+        height: 3rem;
+        border-radius: 2rem;
+        color: white;
+        background-color: rgb(44, 64, 125);
     }
 }
+
+.bubbles-on-forms{
+        background-image: url("../../materials/bub-signup.png");
+        background-size: contain;
+        width:16rem;
+        height: 22rem;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: -13rem;
+    }
 
 @media screen and (max-width: 1200px) {
     #frame{
