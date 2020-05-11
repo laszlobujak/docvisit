@@ -15,7 +15,7 @@ const User = require('../src/models/User');
 let generatedAuthTokenInFlow1 = '';
 const testUser = {
   name: 'Flow1 User',
-  email: 'test_flow10@gmail.com',
+  email: 'test_flow100@gmail.com',
   password: 'test1111111'
 };
 
@@ -47,11 +47,11 @@ describe('User tests', async () => {
       .expect(200);
   });
 
-  it('it should return status code 400 and not login user', async () => {
+  it('it should return status code 404 and not login user', async () => {
     await supertest(app)
       .post('/users/login')
-      .send({ email: testUser.email, password: 'anotherpassword' })
-      .expect(400);
+      .send({ email: "a@b.com"})
+      .expect(404);
   });
 
   it('it should return status code 200 and update user', async () => {

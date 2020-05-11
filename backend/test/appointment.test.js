@@ -50,9 +50,9 @@ const doctor = {
 const appointment = {
   _id: new mongoose.Types.ObjectId(),
   description: 'First appointment',
+  doctor: doctor.name,
   patient: user._id,
-  doctor: doctor._id,
-  date: new Date()
+  date: "2020-05-11T14:51:20.368Z"
 };
 
 describe('Appointment tests', async () => {
@@ -71,8 +71,9 @@ describe('Appointment tests', async () => {
       .set('Authorization', `Bearer ${user.tokens[0].token}`)
       .send({
         description: 'Some description',
-        doctor: doctor._id,
-        date: new Date()
+        patient: user._id,
+        doctor: doctor.name,
+        date: "Sun May 03 2020 00:00:00 GMT+0200 (közép-európai nyári idő) 11:00-12:00"
       })
       .expect(201);
     const newAppointment = await Appointment.findById(response.body._id);
