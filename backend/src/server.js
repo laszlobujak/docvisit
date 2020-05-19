@@ -7,12 +7,7 @@ const appointmentRouter = require('./routers/appointment');
 const app = express();
 
 // adding cors
-app.use(
-  cors({
-    origin: ['http://localhost:3000', 'https://docvisit-proj.herokuapp.com/'],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 app.use(userRouter);
